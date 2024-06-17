@@ -8,7 +8,7 @@ mongoose.connect(process.env.MONGODB_URI).then(()=>{
     
 });
 
-const userSchema = new mongoose.Schema({
+const adminSchema = new mongoose.Schema({
     username: {
         type: String,
         required: (true, "Please enter the username")
@@ -20,8 +20,30 @@ const userSchema = new mongoose.Schema({
 
 })
 
-const User = mongoose.model("user", userSchema)
+const formsSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: (true, "Please enter your name")
+    },
+    email: {
+        type: String,
+        required: (true, "Please enter your email")
+    },
+    phoneNumber: {
+        type: String,
+        required: (true, "Please enter your phone number")
+    },
+    departments: {
+        type: String,
+        enum: ['Tech', 'Design', 'Management'],
+        required: true
+    }
+})
+
+const Admin = mongoose.model("admin", adminSchema)
+const FormsData = mongoose.model("response", formsSchema)
 
 module.exports = {
-    User
+    Admin,
+    FormsData
 }

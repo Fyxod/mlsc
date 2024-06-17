@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/app.js",
-    "style": "npx tailwindcss -i ./public/styles/tailwind.css -o ./public/styles/output.css --watch"
+    "style": "npx tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css --watch"
   },
   "repository": {
     "type": "git",
