@@ -32,7 +32,7 @@ mongoose
     console.log("connected to mongodb");
   })
   .catch((err) => {
-    console.log("could not connect to MongoDB, some error occured\n", err);
+    console.error("could not connect to MongoDB, some error occured\n", err);
   });
 
 // Routes

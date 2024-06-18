@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../styles/output.css">
-</head>
-<body>
-    <div class="bg-red-600">hello worlds</div>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MLSC</title>
+    <link rel="stylesheet" href="../styles/home.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.7.0/build/spline-viewer.js"
+    ></script>
+    <script>
+      window.onload = function () {
+        var shadowRoot = document.querySelector("spline-viewer").shadowRoot;
+        shadowRoot.querySelector("#logo").remove();
+      };
+    </script>
+  </head>
+  <body>
+    <div id="spline-container">
+      <nav class="navbar">
+        <ul class="navbar-menu">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/team" id="team">Team</a></li>
+          <li><a href="/event" id="events">Events</a></li>
+          <li><a href="/form" id="form">Form</a></li>
+        </ul>
+      </nav>
+      <spline-viewer
+        loading-anim-type="spinner-small-light"
+        url="https://prod.spline.design/sfUfxhC4LNzjIcDd/scene.splinecode"
+      ></spline-viewer>
+    </div>
+  </body>
 </html>

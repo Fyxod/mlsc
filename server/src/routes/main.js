@@ -8,5 +8,8 @@ router.get('/team', (req, res) => {
 router.get('/event', (req, res) => {
     res.render('events');
 });
+router.get('/form', (req, res) => {
+    res.render('form');
+});
 
 export default router;
