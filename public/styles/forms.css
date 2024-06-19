@@ -1,0 +1,30 @@
+#root{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#spline {
+    display: inline-block;
+    width: 50vw;
+    height: 100vh;
+    align-content: center;
+}
+
+#forms {
+    display: inline-block;
+    width: 50vw;
+    height: 100vh;
+    align-content: center;
+    
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 15px;
+
+}
+

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MLSC</title>
     <link rel="stylesheet" href="../styles/nav.css" />
+    <link rel="stylesheet" href="../styles/forms.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,29 +39,55 @@
         </ul>
       </nav>
 
-      <h2 style="color: antiquewhite;">Submit Your Details</h2>
-      <form action="/form" method="POST">
-        <label style="color: antiquewhite;" for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br>
-        
-        <label style="color: antiquewhite;" for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        
-        <label style="color: antiquewhite;" for="phoneNumber">Phone Number:</label><br>
-        <input type="text" id="phoneNumber" name="phoneNumber" required><br>
-        
-        <label style="color: antiquewhite;" for="department">Departments:</label><br>
-        <select id="department" name="department" required>
-          <option value="Tech">Tech</option>
-          <option value="Design">Design</option>
-          <option value="Management">Management</option>
-        </select><br><br>
-        
-        <input type="submit" value="Submit">
-        <% if(flash){ %>
-          <div style="color: yellow;"> <%= flash %></div>
-        <% } %>
-      </form>
+      <div id="root">
+        <div id="spline">
+          <spline-viewer
+            loading-anim-type="spinner-small-light"
+            url="https://prod.spline.design/qjLfZS5IT2w8zMul/scene.splinecode"
+          ></spline-viewer>
+        </div>
+
+        <div id="forms">
+          <div id="container">
+            <form action="/form" method="post">
+              <div>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Name*"
+                  required
+                />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email*"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="Phone Number*"
+                  required
+                />
+                <select id="department" name="department" required>
+                  <option value="Tech">Tech</option>
+                  <option value="Design">Design</option>
+                  <option value="Management">Management</option>
+                </select>
+              </div>
+              <input type="submit" value="Submit" />
+              <% if(flash){ %>
+              <div style="color: yellow"><%= flash %></div>
+              <% } %>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

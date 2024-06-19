@@ -1,0 +1,14 @@
+#spline-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  spline-viewer {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    z-index: 3;
+  }
