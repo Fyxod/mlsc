@@ -40,7 +40,6 @@ mongoose
   });
 
 // Routes
-console.log('Hello')
 app.get("/", (req, res) => {
   res.render("home");
 });

@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken'
 
 export async function setUser(data) {
-    console.log('setuser')
     return jwt.sign(
         data,
         process.env.secret || 'notaverygoodsecret',

@@ -1,4 +1,5 @@
 import express from 'express';
+import ExcelJS from 'exceljs'
 import Form from '../models/forms.js';
 import z from 'zod';
 
@@ -33,8 +34,33 @@ router.post('/form', async (req, res) => {
     }
 });
 
-router.post('/generatexlxx', (req, res) => {
-    //Working on this
+router.get('/download-excel', async (req, res) => {
+    try {
+        const responses = await Form.find().lean();
+
+        const workbook = new ExcelJS.Workbook();
+        const sheet = workbook.addWorksheet('Responses');
+
+        sheet.columns = [
+            { header: 'Name', key: 'name', width: 20 },
+            { header: 'Email', key: 'email', width: 30 },
+            { header: 'Phone Number', key: 'phoneNumber', width: 15 },
+            { header: 'Department', key: 'department', width: 20 }
+        ];
+
+        responses.forEach(response => {
+            sheet.addRow(response);
+        });
+
+        const buffer = await workbook.xlsx.writeBuffer();
+
+        res.setHeader('Content-Disposition', 'attachment; filename="responses.xlsx"');
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+
+        res.send(buffer);
+    } catch (error) {
+        console.error('Failed to generate Excel file', error);
+    }
 });
 
 export default router;

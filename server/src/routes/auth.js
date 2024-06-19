@@ -50,11 +50,9 @@ router.post('/admin/login', async (req, res) => {
         if (!validPassword) {
             return res.render("login", { error: "Invalid username or password." });
         }
-        console.log(admin._id, admin.username);
         const token = setUser({ id: admin._id, username: admin.username });
 
         res.cookie('token', token, { httpOnly: true });
-        console.log('all fine till here');
         res.redirect('/admin');
     } catch (error) {
         console.log(error);
