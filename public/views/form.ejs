@@ -37,6 +37,30 @@
           <li><a href="/form" class="active">Forms</a></li>
         </ul>
       </nav>
+
+      <h2 style="color: antiquewhite;">Submit Your Details</h2>
+      <form action="/form" method="POST">
+        <label style="color: antiquewhite;" for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label style="color: antiquewhite;" for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label style="color: antiquewhite;" for="phoneNumber">Phone Number:</label><br>
+        <input type="text" id="phoneNumber" name="phoneNumber" required><br>
+        
+        <label style="color: antiquewhite;" for="department">Departments:</label><br>
+        <select id="department" name="department" required>
+          <option value="Tech">Tech</option>
+          <option value="Design">Design</option>
+          <option value="Management">Management</option>
+        </select><br><br>
+        
+        <input type="submit" value="Submit">
+        <% if(flash){ %>
+          <div style="color: yellow;"> <%= flash %></div>
+        <% } %>
+      </form>
     </div>
   </body>
 </html>

@@ -3,7 +3,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import mainRoute from "./src/routes/main.js";
+import authRoute from "./src/routes/auth.js";
+import formRoute from "./src/routes/form.js";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 
 // Configure environment variables
 dotenv.config();
@@ -17,6 +20,7 @@ const __dirname = path.dirname(__filename);
 // Middleware setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Set up view engine
 app.set("view engine", "ejs");
@@ -29,17 +33,20 @@ app.use(express.static(path.join(__dirname, "../public")));
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log("connected to mongodb");
+    console.log("Connected to MongoDB");
   })
   .catch((err) => {
-    console.error("could not connect to MongoDB, some error occured\n", err);
+    console.log("Could not connect to MongoDB. Error:\n", err);
   });
 
 // Routes
+console.log('Hello')
 app.get("/", (req, res) => {
   res.render("home");
 });
 app.use(mainRoute);
+app.use(authRoute);
+app.use(formRoute);
 
 // Handle 404 errors
 app.use((req, res, next) => {

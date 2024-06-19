@@ -1,27 +1,27 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose";
 
 const formsSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: (true, "Please enter your name")
+        required: [true, "Please enter your name"]
     },
     email: {
         type: String,
-        required: (true, "Please enter your email")
+        required: [true, "Please enter your email"]
     },
     phoneNumber: {
         type: String,
-        required: (true, "Please enter your phone number")
+        required: [true, "Please enter your phone number"]
     },
-    departments: {
+    department: {
         type: String,
         enum: ['Tech', 'Design', 'Management'],
         required: true
     }
-})
+}, {
+    timestamps: true
+});
 
-const FormsData = mongoose.model("response", formsSchema)
+const Form = mongoose.model("Response", formsSchema);
 
-module.exports = {
-    FormsData
-}
+export default Form;
