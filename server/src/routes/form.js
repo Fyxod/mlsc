@@ -1,6 +1,7 @@
 import express from 'express';
 import ExcelJS from 'exceljs'
 import Form from '../models/forms.js';
+import sendMail from '../services/mail.js';
 import z from 'zod';
 
 const router = express.Router();
@@ -28,6 +29,10 @@ router.post('/form', async (req, res) => {
         });
 
         await form.save();
+        const options = {
+            name, email, phoneNumber, department
+        }
+        sendMail(options)
         res.render('form', { flash: "Form submitted successfully" });
     } catch (error) {
         res.render('form', { flash: error.errors[0].message });

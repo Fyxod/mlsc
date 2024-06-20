@@ -7,8 +7,6 @@ import authRoute from "./src/routes/auth.js";
 import formRoute from "./src/routes/form.js";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
-
-// Configure environment variables
 dotenv.config();
 
 const app = express();
