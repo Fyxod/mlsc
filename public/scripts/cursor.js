@@ -1,5 +1,5 @@
 var circle = document.querySelector("#circle");
-var box1 = document.querySelector("#page4");
+var box1 = document.querySelector(".swiper");
 document.body.addEventListener("mousemove", function (dets) {
   gsap.to(circle, {
     x: dets.clientX,

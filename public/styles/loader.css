@@ -1,34 +1,31 @@
+#loader {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: #050505;
+  position: fixed;
+  z-index: 999;
+  transition: all linear 1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #loader h2 {
   position: absolute;
   color: transparent;
   font-size: 4vw;
-  background: linear-gradient(
-    to right,
-    #2196f3,
-    #00bfa5
-  );
+  background: linear-gradient(to right, #2196f3, #00bfa5);
   -webkit-background-clip: text;
   opacity: 0;
   animation-name: loading;
+  animation-duration: 1s;
+  text-decoration: none;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-style: normal;
-  animation-duration: 1s;
   animation-delay: 1s;
   animation-timing-function: linear;
-}
-
-#loader {
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  background-color: #020202;
-  position: fixed;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #loader h2:nth-child(2) {
