@@ -1,38 +1,30 @@
-var main = document.querySelector("#main");
-
 var circle = document.querySelector("#circle");
+var box1 = document.querySelector("#page4");
+document.body.addEventListener("mousemove", function (dets) {
+  gsap.to(circle, {
+    x: dets.clientX,
+    y: dets.clientY,
+    duration: 0.6,
+  });
+});
 
-var box1 = document.querySelector("#box1");
+box1.addEventListener("mouseenter", function () {
+  circle.innerHTML = `<img src="../assets/images/horizontal.png" alt="" width="13px">`;
+  gsap.to(circle, {
+    duration: 0.6,
+    scale: 2.5,
+    color: "#0e0e0e",
+    opacity: 1,
+    backgroundColor: "#0077ff",
+  });
+});
 
-var box2 = document.querySelector("#box2");
-
-document.body.addEventListener("mousemove",function(dets){
-    gsap.to(circle,{
-        x : dets.x,
-        y : dets.y,
-        duration : 0.6,
-  })
-
-})
-
-
-box1.addEventListener("mouseenter",function(){
-    circle.innerHTML="MLSC-DB";
-    gsap.to(circle,{
-        
-        duration:0.6,
-        scale : 2.5,
-        obacity: 0.7,
-        backgroundcolor: "rgba(255, 255, 255, 0.977)",
-        
-    })
-})
-   
-box1.addEventListener("mouseleave",function(){
-    circle.innerHTML="";
-    gsap.to(circle,{
-        duration:0.6,
-        scale : 1,
-        backgroundcolor: "",
-      })
-})
+box1.addEventListener("mouseleave", function () {
+  circle.innerHTML = "";
+  gsap.to(circle, {
+    duration: 0.6,
+    scale: 1,
+    backgroundColor: "",
+    opacity: 1,
+  });
+});

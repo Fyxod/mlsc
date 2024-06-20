@@ -1,16 +1,17 @@
-#circle{
-    padding: 3px;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-   background-color: rgb(31, 146, 146);
-   position: absolute;
-   z-index: 5;
-   font-size: 8px;
-   color: white;
-   display: flex;
-   align-items: center;
-   text-align: center;
-   justify-content: center;
-
+#circle {
+  padding: 3px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: rgb(31, 146, 146);
+  position: fixed;
+  z-index: 500;
+  font-size: 8px;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: width 0.2s, height 0.2s, background-color 0.2s, border 0.2s;
 }

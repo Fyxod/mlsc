@@ -4,24 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MLSC</title>
-    <link rel="stylesheet" href="../styles/nav.css" />
-    <link rel="stylesheet" href="../styles/home.css" />
-    <link rel="stylesheet" href="../styles/cursor.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <link rel="stylesheet" href="../styles/nav.css" />
+    <link rel="stylesheet" href="../styles/loader.css">
+    <link rel="stylesheet" href="../styles/home.css" />
+    <link rel="stylesheet" href="../styles/cursor.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="shortcut icon"
       href="../assets/images/favicon.ico"
       type="image/x-icon"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
     <script
@@ -36,6 +45,11 @@
     </script>
   </head>
   <body>
+    <div id="loader">
+      <h2>Imagine</h2>
+      <h2>Innovate</h2>
+      <h2>Inspire</h2>
+  </div>
     <div id="circle"></div>
     <div id="spline-container">
       <nav class="navbar">
@@ -54,31 +68,88 @@
     <div id="page2">
       <div id="infinite-text">
         <div class="con">
-          <h1>EXPERIENCES</h1>
+          <h1>IMAGINE</h1>
           <div id="gola"></div>
-          <H1>CONTENT</H1>
+          <h1>INNOVATE</h1>
           <div id="gola"></div>
-          <H1>ENVIRONMENTS</H1>
-          <div id="gola"></div>
-        </div>
-        <div class="con">
-          <h1>EXPERIENCES</h1>
-          <div id="gola"></div>
-          <H1>CONTENT</H1>
-          <div id="gola"></div>
-          <H1>ENVIRONMENTS</H1>
+          <h1>INSPIRE</h1>
           <div id="gola"></div>
         </div>
         <div class="con">
-          <h1>EXPERIENCES</h1>
+          <h1>IMAGINE</h1>
           <div id="gola"></div>
-          <H1>CONTENT</H1>
+          <h1>INNOVATE</h1>
           <div id="gola"></div>
-          <H1>ENVIRONMENTS</H1>
+          <h1>INSPIRE</h1>
+          <div id="gola"></div>
+        </div>
+        <div class="con">
+          <h1>IMAGINE</h1>
+          <div id="gola"></div>
+          <h1>INNOVATE</h1>
+          <div id="gola"></div>
+          <h1>INSPIRE</h1>
           <div id="gola"></div>
         </div>
       </div>
     </div>
+    <div id="page4">
+      <div id="heading">
+        <div id="dot"></div>
+        <p id="intro">What is Microsoft Learn Student Chapter?</p>
+      </div>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="../assets/images/question.png" alt="logo" width="40px" />
+            <p>
+              The Microsoft Learn Student Chapter in Derabassi is a dynamic tech
+              club dedicated to providing hands-on experience in various
+              technological domains. Our main goal is to expose students to the
+              tech world and inspire them to create unique solutions.
+            </p>
+          </div>
+          <div class="swiper-slide">
+            <img src="../assets/images/embed.png" alt="logo" width="40px"/>
+            <p>
+              Our team is exceptional, encompassing expertise in tech, design,
+              and management. We offer a wide range of skills to students,
+              including web development, app development, game development,
+              DevOps, cybersecurity, AI/ML, and AR.
+            </p>
+          </div>
+          <div class="swiper-slide">
+            <img src="../assets/images/ux.png" alt="logo" width="40px"/>
+            <p>
+              In addition to tech, we focus on creative fields like UI/UX
+              design, Blender, Spline, and audio, video, and photo editing. This
+              holistic approach ensures students gain a well-rounded skill set.
+            </p>
+          </div>
+          <div class="swiper-slide">
+            <img src="../assets/images/muscle.png" alt="logo" width="40px"/>
+            <p>
+              Our management team is commendable, always ready to oversee the
+              club's operations and ensure smooth functioning. They play a
+              crucial role in organizing events and managing the society
+              efficiently.
+            </p>
+          </div>
+          <div class="swiper-slide">
+            <img src="../assets/images/graph.png" alt="logo" width="40px" />
+            <p>
+              Through our activities and programs, we aim to motivate students
+              to explore the tech world and achieve excellence in their chosen
+              fields. Join us to embark on an exciting journey of learning and
+              innovation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../scripts/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../scripts/swiper.js"></script>
     <script src="../scripts/cursor.js"></script>
-  </body>
+  </body>
 </html>

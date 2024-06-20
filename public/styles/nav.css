@@ -1,6 +1,7 @@
+/* General Styles */
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -11,8 +12,8 @@ body {
 .navbar {
   position: absolute;
   top: 15px;
-  left: 0px;
-  right: 0px;
+  left: 0;
+  right: 0;
   z-index: 10;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
@@ -78,4 +79,31 @@ body {
 .navbar-menu a:hover,
 .navbar-menu a.active {
   color: #ffffff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    width: 50%;
+  }
+
+  .navbar-menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-menu li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .navbar-menu li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    width: 70%;
+  }
 }
