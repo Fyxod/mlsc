@@ -7,6 +7,7 @@ import authRoute from "./src/routes/auth.js";
 import formRoute from "./src/routes/form.js";
 import connectMongo from "./src/db/mongoose.js";
 import cookieParser from "cookie-parser";
+import mongoSanitize from "express-mongo-sanitize";
 dotenv.config();
 
 const app = express();
@@ -19,6 +20,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(mongoSanitize());
 
 // Set up view engine
 app.set("view engine", "ejs");
