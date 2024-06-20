@@ -6,7 +6,7 @@
     to right,
     #2196f3,
     #00bfa5
-  ); /* Vibrant blue gradient */
+  );
   -webkit-background-clip: text;
   opacity: 0;
   animation-name: loading;
