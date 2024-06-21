@@ -17,6 +17,7 @@
   font-size: 4vw;
   background: linear-gradient(to right, #2196f3, #00bfa5);
   -webkit-background-clip: text;
+  background-clip: text;
   opacity: 0;
   animation-name: loading;
   animation-duration: 1s;

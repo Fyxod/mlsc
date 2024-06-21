@@ -87,7 +87,7 @@ spline-viewer {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: start;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 14px;
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
