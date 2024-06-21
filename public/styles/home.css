@@ -151,17 +151,3 @@ spline-viewer {
     padding: 0 1vw;
   }
 }
-
-#footer {
-  width: 100%;
-  height: 35px;
-  background-color: #0b0b0b;
-  color: #ffffffc9;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.9em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
