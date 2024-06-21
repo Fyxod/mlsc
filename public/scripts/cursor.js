@@ -2,7 +2,7 @@ var circle = document.querySelector("#circle");
 
 // Check if the element exists before adding event listeners
 var box1 = document.querySelector(".swiper");
-var box2 = document.querySelector("#forms");
+var box2 = document.querySelector("#container");
 
 document.body.addEventListener("mousemove", function (dets) {
   gsap.to(circle, {

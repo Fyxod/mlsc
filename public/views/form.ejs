@@ -47,12 +47,13 @@
         <div id="forms">
           <div id="container">
             <form action="/form" method="post">
-              <div>
+              <div style="padding-bottom: 3px;">
                 <input
                   type="text"
                   class="inputbox"
                   id="name"
                   name="name"
+                  style="width: 140px;"
                   placeholder="Name*"
                   required
                 />
@@ -65,7 +66,7 @@
                   required
                 />
               </div>
-              <div>
+              <div style="padding-bottom: 3px;">
                 <input
                   type="text"
                   id="phoneNumber"
@@ -85,7 +86,7 @@
                   <option value="Management">Management</option>
                 </select>
               </div>
-              <input type="submit" value="Submit" class="button" />
+              <input type="submit" value="Submit" class="button" style="margin: 5px;"/>
               <% if(flash){ %>
               <div class="flash"><%= flash %></div>
               <% } %>

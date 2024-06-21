@@ -47,11 +47,12 @@
 .dropdown,
 .button {
   padding: 10px;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #ffffff72;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.5);
   color: #fff;
   box-sizing: border-box;
+  margin: 5px;
   appearance: none; 
   -webkit-appearance: none;
   -moz-appearance: none;
