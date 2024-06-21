@@ -1,8 +1,8 @@
 var circle = document.querySelector("#circle");
 
-// Check if the element exists before adding event listeners
 var box1 = document.querySelector(".swiper");
 var box2 = document.querySelector("#container");
+var box3 = document.querySelector("#aboutprojects")
 
 document.body.addEventListener("mousemove", function (dets) {
   gsap.to(circle, {
@@ -47,6 +47,28 @@ if (box2) {
   });
 
   box2.addEventListener("mouseleave", function () {
+    circle.innerHTML = "";
+    gsap.to(circle, {
+      duration: 0.6,
+      scale: 1,
+      backgroundColor: "",
+      opacity: 1,
+    });
+  });
+}
+
+if (box3) {
+  box3.addEventListener("mouseenter", function () {
+    gsap.to(circle, {
+      duration: 0.6,
+      scale: 1.5,
+      color: "#0e0e0e",
+      opacity: 0.6,
+      backgroundColor: "#ffffff",
+    });
+  });
+
+  box3.addEventListener("mouseleave", function () {
     circle.innerHTML = "";
     gsap.to(circle, {
       duration: 0.6,

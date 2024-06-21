@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="../styles/loader.css" />
     <link rel="stylesheet" href="../styles/home.css" />
     <link rel="stylesheet" href="../styles/cursor.css" />
-    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/event.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -95,9 +96,9 @@
       </div>
     </div>
     <div id="page4">
-      <div id="heading">
-        <div id="dot"></div>
-        <p id="intro">What is Microsoft Learn Student Chapter?</p>
+      <div class="heading">
+        <div class="dot"></div>
+        <p class="intro">What is Microsoft Learn Student Chapter?</p>
       </div>
       <div class="swiper">
         <div class="swiper-wrapper">
@@ -173,12 +174,36 @@
         </div>
       </div>
     </div>
-    <footer id="footer">
-      Made with ❤️ by team MLSC '27
-    </footer>    
+    <div id="event_main">
+      <div class="heading">
+        <div class="dot"></div>
+        <p class="intro">Past tech events organised by Team MLSC</p>
+      </div>
+      <div id="aboutprojects">
+        <div id="projects">
+          <div id="projectitles">
+            <button id="firstbutton" onclick="swapFirst()">Delta</button>
+            <button id="secondbutton" onclick="swapSecond()">Astellar</button>
+            <button id="thirdbutton" onclick="swapThird()">TBA</button>
+          </div>
+          <div id="projectinfo">
+            <p>
+              Delta, a three-day flagship event, featured a Cryptic Hunt on day
+              1, a Treasure Hunt on day 2, and a Gaming Night on day 3, offering
+              participants a blend of challenging puzzles, adventurous quests,
+              and competitive gaming.
+            </p>
+          </div>
+        </div>
+        <div id="projectimg"></div>
+      </div>
+    </div>
+
+    <footer id="footer">Made with ❤️ by team MLSC '27</footer>
     <script src="../scripts/loader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../scripts/swiper.js"></script>
     <script src="../scripts/cursor.js"></script>
+    <script src="../scripts/events.js"></script>
   </body>
 </html>
