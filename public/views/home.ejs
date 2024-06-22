@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="../styles/cursor.css" />
     <link rel="stylesheet" href="../styles/footer.css" />
     <link rel="stylesheet" href="../styles/event.css" />
+    <link rel="stylesheet" href="../styles/forms.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -58,7 +59,7 @@
         <div id="nav-part2">
           <h4><a href="/" id="home-link" class="active">Home</a></h4>
           <h4><a href="#events" id="events-link">Events</a></h4>
-          <h4><a href="/team" id="team-link">Team</a></h4>
+          <h4><a href="#main" id="team-link">Team</a></h4>
           <h4><a href="/form" id="form-link">Forms</a></h4>
         </div>
       </nav>
@@ -198,35 +199,131 @@
         <div id="projectimg"></div>
       </div>
     </div>
-    <div id="main" style="margin-top: 70px;">
+    <div id="main" style="margin-top: 70px">
       <div id="top">
-          <h1 id="top-h1">TEAM'27</h1>
+        <h1 id="top-h1">TEAM'27</h1>
       </div>
       <div id="center">
-          <div class="content">
-              <h4>MLSC</h4>
-              <h3><i>Team '27</i> the team that define a <i>movement</i> and created a craft.</h3>
-              <div class="btn">
-                  <h5>VIEW TEAM</h5>
-              </div>
-              <h2>(27)</h2>
-          </div>
+        <div class="content">
+          <h3>
+            <b><i>MLSC '27</i></b> the team that brew <i>code</i> and craft new
+            ideas.
+          </h3>
+        </div>
       </div>
       <div id="bottom">
-          <h1 id="bottom-h1">TEAM'27</h1>
+        <h1 id="bottom-h1">TEAM'27</h1>
       </div>
-  </div>
+    </div>
+    <div id="white">
+      <div class="part-2">
+        <div class="rounded-div-wrapper">
+          <div class="rounded-div"></div>
+        </div>
+        <div class="content-2">
+          <div class="text-area">
+            <h1>This is your chance to</h1>
+            <br />
+            <h2>get captured by MLSC.</h2>
+          </div>
+          <div class="text-area-hover">
+            <h1>This is your chance to</h1>
+            <br />
+            <h2>get captured by MLSC.</h2>
+          </div>
+        </div>
+      </div>
 
+      <div id="forms">
+        <div id="container">
+          <form action="/form" method="post">
+            <div style="padding-bottom: 3px">
+              <input
+                type="text"
+                class="inputbox"
+                id="name"
+                name="name"
+                style="width: 250px"
+                placeholder="Name*"
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                class="inputbox"
+                name="email"
+                style="width: 350px"
+                placeholder="Email*"
+                required
+              />
+            </div>
+            <div style="padding-bottom: 3px">
+              <input
+                type="text"
+                id="phoneNumber"
+                style="width: 200px"
+                name="phoneNumber"
+                class="inputbox"
+                placeholder="Phone Number*"
+                required
+              />
+              <select
+                id="department"
+                name="department"
+                class="dropdown"
+                required
+              >
+                <option value="Tech">Tech</option>
+                <option value="Design">Design</option>
+                <option value="Management">Management</option>
+              </select>
+            </div>
+            <input
+              type="text"
+              id="ques1"
+              style="width: 450px"
+              name="ques1"
+              class="inputbox"
+              placeholder="Random question one to be asked?*"
+              required
+            />
+            <input
+              type="submit"
+              value="Submit"
+              class="button"
+              style="margin: 5px"
+            />
+            <% if(flash){ %>
+            <div class="flash"><%= flash %></div>
+            <% } %>
+          </form>
+        </div>
+      </div>
+    </div>
 
-
-    <footer id="footer">Made with ❤️ by team MLSC '27</footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <footer>
+      <div id="footer">
+        <p>Made with ❤️ by team MLSC '27</p>
+      </div>
+    </footer>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+      integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"
+      integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="../scripts/team.js"></script>
     <script src="../scripts/loader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../scripts/swiper.js"></script>
     <script src="../scripts/cursor.js"></script>
     <script src="../scripts/events.js"></script>
+    <script src="../scripts/forms.js"></script>
   </body>
 </html>

@@ -1,8 +1,8 @@
 var circle = document.querySelector("#circle");
 
 var box1 = document.querySelector(".swiper");
-var box2 = document.querySelector("#container");
-var box3 = document.querySelector("#aboutprojects")
+var box3 = document.querySelector("#aboutprojects");
+var box4 = document.querySelector("#white");
 
 document.body.addEventListener("mousemove", function (dets) {
   gsap.to(circle, {
@@ -35,28 +35,6 @@ if (box1) {
   });
 }
 
-if (box2) {
-  box2.addEventListener("mouseenter", function () {
-    gsap.to(circle, {
-      duration: 0.6,
-      scale: 2.5,
-      color: "#0e0e0e",
-      opacity: 1,
-      backgroundColor: "#0077ff",
-    });
-  });
-
-  box2.addEventListener("mouseleave", function () {
-    circle.innerHTML = "";
-    gsap.to(circle, {
-      duration: 0.6,
-      scale: 1,
-      backgroundColor: "",
-      opacity: 1,
-    });
-  });
-}
-
 if (box3) {
   box3.addEventListener("mouseenter", function () {
     gsap.to(circle, {
@@ -69,6 +47,27 @@ if (box3) {
   });
 
   box3.addEventListener("mouseleave", function () {
+    circle.innerHTML = "";
+    gsap.to(circle, {
+      duration: 0.6,
+      scale: 1,
+      backgroundColor: "",
+      opacity: 1,
+    });
+  });
+}
+if (box4) {
+  box4.addEventListener("mouseenter", function () {
+    gsap.to(circle, {
+      duration: 0.6,
+      scale: 1,
+      color: "#0e0e0e",
+      opacity: 1,
+      backgroundColor: "#0e0e0e",
+    });
+  });
+
+  box4.addEventListener("mouseleave", function () {
     circle.innerHTML = "";
     gsap.to(circle, {
       duration: 0.6,

@@ -3,34 +3,93 @@ var btn1 = document.getElementById("firstbutton");
 var btn2 = document.getElementById("secondbutton");
 var btn3 = document.getElementById("thirdbutton");
 var i = document.getElementById("projectimg");
-document.addEventListener('DOMContentLoaded', function () {
-    const homeLink = document.getElementById('home-link');
-    const eventsLink = document.getElementById('events-link');
-    const homeSection = document.getElementById('home');
-    const eventsSection = document.getElementById('events');
+document.addEventListener("DOMContentLoaded", function () {
+  const homeLink = document.getElementById("home-link");
+  const eventsLink = document.getElementById("events-link");
+  const teamLink = document.getElementById("team-link");
+  const formLink = document.getElementById("form-link");
+  const homeSection = document.getElementById("home");
+  const eventsSection = document.getElementById("events");
+  const teamSection = document.getElementById("main");
+  const formSection = document.getElementById("white");
 
-    eventsLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelectorAll('.navbar-menu a').forEach(link => link.classList.remove('active'));
-        eventsLink.classList.add('active');
-        eventsSection.scrollIntoView({ behavior: 'smooth' });
-    });
+  eventsLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    document
+      .querySelectorAll(".navbar-menu a")
+      .forEach((link) => link.classList.remove("active"));
+    eventsLink.classList.add("active");
+    eventsSection.scrollIntoView({ behavior: "smooth" });
+  });
 
-    window.addEventListener('scroll', function () {
-        const currentScroll = window.pageYOffset;
-        const eventsTop = eventsSection.offsetTop;
-        const homeTop = homeSection.offsetTop;
-        const buffer = 200;
+  window.addEventListener("scroll", function () {
+    const currentScroll = window.pageYOffset;
+    const eventsTop = eventsSection.offsetTop;
+    const homeTop = homeSection.offsetTop;
+    const buffer = 200;
 
-        document.querySelectorAll('.navbar-menu a').forEach(link => link.classList.remove('active'));
+    document
+      .querySelectorAll(".navbar-menu a")
+      .forEach((link) => link.classList.remove("active"));
 
-        if (currentScroll >= eventsTop - buffer) {
-            eventsLink.classList.add('active');
-        } else {
-            homeLink.classList.add('active');
-        }
-    });
+    if (currentScroll >= eventsTop - buffer) {
+      eventsLink.classList.add("active");
+    } else {
+      homeLink.classList.add("active");
+    }
+  });
+  teamLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    document
+      .querySelectorAll(".navbar-menu a")
+      .forEach((link) => link.classList.remove("active"));
+    eventsLink.classList.add("active");
+    teamSection.scrollIntoView({ behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", function () {
+    const currentScroll = window.pageYOffset;
+    const teamTop = teamLink.offsetTop;
+    const homeTop = homeSection.offsetTop;
+    const buffer = 200;
+
+    document
+      .querySelectorAll(".navbar-menu a")
+      .forEach((link) => link.classList.remove("active"));
+
+    if (currentScroll >= teamTop - buffer) {
+      eventsLink.classList.add("active");
+    } else {
+      homeLink.classList.add("active");
+    }
+  });
+  formLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    document
+      .querySelectorAll(".navbar-menu a")
+      .forEach((link) => link.classList.remove("active"));
+    formLink.classList.add("active");
+    formSection.scrollIntoView({ behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", function () {
+    const currentScroll = window.pageYOffset;
+    const teamTop = formLink.offsetTop;
+    const homeTop = homeSection.offsetTop;
+    const buffer = 200;
+
+    document
+      .querySelectorAll(".navbar-menu a")
+      .forEach((link) => link.classList.remove("active"));
+
+    if (currentScroll >= teamTop - buffer) {
+      formLink.classList.add("active");
+    } else {
+      homeLink.classList.add("active");
+    }
+  });
 });
+
 function swapFirst() {
   if (!i.style.backgroundImage.includes("../assets/images/delta.webp")) {
     p.textContent =

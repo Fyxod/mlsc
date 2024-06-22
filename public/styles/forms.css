@@ -1,30 +1,12 @@
-#root {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  position: relative;
-}
-
-#spline {
-  display: flex;
-  align-content: center;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  z-index: 1;
-}
-
 #forms {
   display: flex;
-  justify-content: center; 
   align-items: center; 
-  z-index: 3;
-  width: 50vw;
-  height: 80vh;
+  justify-content: center;
+  width: 100vw;
+  background-color: white;
+  height: 60vh;
   top: 50%;
   left: 50%; 
-  transform: translate(-50%, -50%);
-  position: fixed;
   padding: 30px;
 }
 
@@ -35,22 +17,15 @@
   width: 100%;
   height: 80%;
   padding: 20px;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .inputbox,
 .dropdown,
 .button {
   padding: 10px;
-  border: 2px solid #ffffff72;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  border: 2px solid #00000086;
+  border-radius: 14px;
+  color: black;
   box-sizing: border-box;
   margin: 5px;
   appearance: none; 
@@ -59,8 +34,13 @@
   position: relative;
 }
 
+.button {
+  background-color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
 .inputbox::placeholder {
-  color: #ccc; 
+  color: black; 
 }
 
 .dropdown {
@@ -83,12 +63,18 @@
 }
 
 .button:hover {
-  background: rgba(255, 255, 255, 0.3); 
-  color: #000; 
+  background: rgba(0, 0, 0); 
+  color: #fff; 
 }
 
 .flash {
-  color: green;
+  color: rgb(0, 0, 0);
   margin-top: 10px;
   text-align: center;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 13px;
 }

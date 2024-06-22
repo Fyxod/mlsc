@@ -34,7 +34,7 @@ connectMongo();
 
 // Routes
 app.get("/", (req, res) => {
-  res.render("home");
+  res.render("home", { flash: null });
 });
 app.use(mainRoute);
 app.use(authRoute);
