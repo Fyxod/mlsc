@@ -13,9 +13,6 @@ const formsSchema = z.object({
     department: z.enum(['Tech', 'Design', 'Management'], { message: "Please select a department" })
 });
 
-router.get('/form', (req, res) => {
-    res.render('form', { flash: null });
-});
 
 router.post('/form', async (req, res) => {
     try {
@@ -29,15 +26,15 @@ router.post('/form', async (req, res) => {
         });
 
         await form.save();
-        const options = {
-            name, email, phoneNumber, department
-        }
-        sendMail(options)
-        res.render('form', { flash: "Form submitted successfully" });
+        const options = { name, email, phoneNumber, department };
+        sendMail(options);
+
+        return res.redirect('/?flash=Form%20submitted%20successfully#forms');
     } catch (error) {
-        res.render('form', { flash: error.errors[0].message });
+        return res.redirect(`/?flash=${encodeURIComponent(error.errors[0].message)}#forms`);
     }
 });
+
 
 router.get('/download-excel', async (req, res) => {
     try {

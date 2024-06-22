@@ -60,7 +60,7 @@
           <h4><a href="/" id="home-link" class="active">Home</a></h4>
           <h4><a href="#events" id="events-link">Events</a></h4>
           <h4><a href="#main" id="team-link">Team</a></h4>
-          <h4><a href="/form" id="form-link">Forms</a></h4>
+          <h4><a href="#form" id="form-link">Forms</a></h4>
         </div>
       </nav>
       <spline-viewer
@@ -278,7 +278,7 @@
                 <option value="Management">Management</option>
               </select>
             </div>
-            <input
+            <!-- <input
               type="text"
               id="ques1"
               style="width: 450px"
@@ -286,16 +286,14 @@
               class="inputbox"
               placeholder="Random question one to be asked?*"
               required
-            />
+            />Removed this right now as it was interfering with the schema, will add this later after the questions and the schema will be decided -->
             <input
               type="submit"
               value="Submit"
               class="button"
               style="margin: 5px"
             />
-            <% if(flash){ %>
-            <div class="flash"><%= flash %></div>
-            <% } %>
+            <div class="flash"></div>
           </form>
         </div>
       </div>
@@ -318,6 +316,27 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const flashMessage = urlParams.get('flash');
+        console.log(flashMessage)
+  
+        if (flashMessage) {
+          const flashMessageDiv = document.querySelector('.flash');
+          flashMessageDiv.textContent = flashMessage;
+  
+          // Scroll to the form div
+          document.getElementById('forms').scrollIntoView({ behavior: 'smooth' });
+  
+          setTimeout(function () {
+            history.replaceState({}, document.title, "/");
+          }, 6500);
+          
+  
+        }
+      });
+    </script>
     <script src="../scripts/team.js"></script>
     <script src="../scripts/loader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

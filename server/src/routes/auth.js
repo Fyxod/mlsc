@@ -12,7 +12,7 @@ const adminSchema = z.object({
 const router = express.Router();
 
 router.get('/tempreg', (req, res) => {
-    res.render('register', { error: null });
+    return res.render('register', { error: null });
 });
 
 router.post('/tempreg', async (req, res) => {
@@ -29,14 +29,14 @@ router.post('/tempreg', async (req, res) => {
         });
         await admin.save();
         console.log('Admin registered successfully');
-        res.redirect('/admin/login');
+        return res.redirect('/admin/login');
     } catch (error) {
         res.render('register', { error: error.errors[0].message });
     }
 });
 
 router.get('/admin/login', (req, res) => {
-    res.render('login', { error: null });
+    return res.render('login', { error: null });
 });
 
 router.post('/admin/login', async (req, res) => {
@@ -56,13 +56,13 @@ router.post('/admin/login', async (req, res) => {
         res.redirect('/admin');
     } catch (error) {
         console.log(error);
-        res.render('login', { error: error.errors[0].message });
+        return res.render('login', { error: error.errors[0].message });
     }
 });
 
 router.post('/logout', (req, res) => {
     res.clearCookie('token');
-    res.redirect('/admin/login');
+    return res.redirect('/admin/login');
 });
 
 export default router;

@@ -6,10 +6,10 @@ const router = express.Router();
 
 router.get('/admin', checkAuth, async (req, res) => {
     if (!req.user) {
-        res.redirect('/admin/login');
+        return res.redirect('/admin/login');
     }
     const responses = await Form.find();
-    res.render('admin', { error: null, responses });
+    return res.render('admin', { error: null, responses });
 });
 
 export default router;
