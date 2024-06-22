@@ -9,7 +9,7 @@ const router = express.Router();
 const formsSchema = z.object({
     name: z.string().min(1, { message: "Please enter your name" }),
     email: z.string().email({ message: "Please enter a valid email address" }),
-    phoneNumber: z.string().min(1, { message: "Please enter your phone number" }),
+    phoneNumber: z.string().min(10, { message: "Please enter your phone number" }),
     department: z.enum(['Tech', 'Design', 'Management'], { message: "Please select a department" })
 });
 
