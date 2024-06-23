@@ -25,6 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(function () {
       history.replaceState({}, document.title, "/");
-    }, 6500);
+    }, 1100);
   }
 });
