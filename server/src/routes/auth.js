@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import Admin from '../models/user.js';
+import checkAuth from '../middlewares/auth.js';
 import { setUser } from '../services/jwtfuncs.js';
 import { z } from 'zod';
 import express from 'express';
@@ -35,7 +36,10 @@ router.post('/tempreg', async (req, res) => {
     }
 });
 
-router.get('/admin/login', (req, res) => {
+router.get('/admin/login', checkAuth, (req, res) => {
+    if(req.user){
+        return res.redirect('/admin')
+    }
     return res.render('login', { error: null });
 });
 
