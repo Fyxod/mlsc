@@ -38,7 +38,7 @@
     />
     <script
       type="module"
-      src="https://unpkg.com/@splinetool/viewer@1.7.0/build/spline-viewer.js"
+      src="https://unpkg.com/@splinetool/viewer@1.7.6/build/spline-viewer.js"
     ></script>
     <script>
       window.onload = function () {
@@ -46,8 +46,74 @@
         shadowRoot.querySelector("#logo").remove();
       };
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const splineContainer = document.getElementById("spline-container");
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                if (!document.querySelector("spline-viewer")) {
+                  const splineViewer = document.createElement("spline-viewer");
+                  splineViewer.setAttribute(
+                    "loading-anim-type",
+                    "spinner-small-light"
+                  );
+                  splineViewer.setAttribute(
+                    "url",
+                    "https://prod.spline.design/j9hK2tR8NoYP955v/scene.splinecode"
+                  );
+                  splineContainer.appendChild(splineViewer);
+                }
+              } else {
+                const splineViewer = document.querySelector("spline-viewer");
+                if (splineViewer) {
+                  splineContainer.removeChild(splineViewer);
+                }
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        observer.observe(splineContainer);
+
+        const config = { childList: true, subtree: true };
+        const callback = function (mutationsList, observer) {
+          for (const mutation of mutationsList) {
+            if (mutation.type === "childList") {
+              mutation.addedNodes.forEach((node) => {
+                if (node.tagName === "SPLINE-VIEWER") {
+                  const interval = setInterval(() => {
+                    const shadowRoot = node.shadowRoot;
+                    const logo = shadowRoot.querySelector("#logo");
+                    if (logo) {
+                      logo.remove();
+                      clearInterval(interval);
+                    }
+                  }, 10);
+                }
+              });
+            }
+          }
+        };
+
+        const mutationObserver = new MutationObserver(callback);
+        mutationObserver.observe(document.body, config);
+      });
+    </script>
   </head>
   <body>
+    <script>
+      console.log(
+        "%cWelcome to the MLSC'27 Website!",
+        "color: blue; font-size: 20px; font-weight: bold; text-shadow: 2px 2px 0px rgba(0,0,0,0.3);"
+      );
+      console.log(
+        "%cHave a great day!",
+        "color: green; font-size: 18px; font-style: italic; background-color: yellow; padding: 2px 4px;"
+      );
+    </script>
     <div id="loader">
       <h2>Imagine</h2>
       <h2>Innovate</h2>
@@ -63,10 +129,6 @@
           <h4><a href="#form" id="form-link">Forms</a></h4>
         </div>
       </nav>
-      <spline-viewer
-        loading-anim-type="spinner-small-light"
-        url="https://prod.spline.design/j9hK2tR8NoYP955v/scene.splinecode"
-      ></spline-viewer>
     </div>
     <div id="home">
       <div id="infinite-text">
@@ -233,7 +295,6 @@
           </div>
         </div>
       </div>
-
       <div id="forms">
         <div id="container">
           <form action="/form" method="post">
@@ -298,7 +359,6 @@
         </div>
       </div>
     </div>
-
     <footer>
       <div id="footer">
         <p>Made with ❤️ by team MLSC '27</p>
@@ -316,30 +376,29 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
-        const flashMessage = urlParams.get('flash');
-        console.log(flashMessage)
-  
+        const flashMessage = urlParams.get("flash");
+        console.log(flashMessage);
+
         if (flashMessage) {
-          const flashMessageDiv = document.querySelector('.flash');
+          const flashMessageDiv = document.querySelector(".flash");
           flashMessageDiv.textContent = flashMessage;
-  
-          // Scroll to the form div
-          document.getElementById('forms').scrollIntoView({ behavior: 'smooth' });
-  
+
+          document
+            .getElementById("forms")
+            .scrollIntoView({ behavior: "smooth" });
+
           setTimeout(function () {
             history.replaceState({}, document.title, "/");
           }, 6500);
-          
-  
         }
       });
     </script>
     <script src="../scripts/team.js"></script>
     <script src="../scripts/loader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="../scripts/swiper.js"></script>
     <script src="../scripts/cursor.js"></script>
     <script src="../scripts/events.js"></script>
