@@ -4,6 +4,8 @@ var box1 = document.querySelector(".swiper");
 var box3 = document.querySelector("#aboutprojects");
 var box4 = document.querySelector("#white");
 
+document.addEventListener("contextmenu", (e) => e.preventDefault(), false);
+
 document.body.addEventListener("mousemove", function (dets) {
   gsap.to(circle, {
     x: dets.clientX,
