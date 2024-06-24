@@ -153,17 +153,17 @@ spline-viewer {
 
 @font-face {
   font-family: Founder;
-  src: url(../assets/fonts/FoundersGroteskCondensed-Bold.ttf);
+  src: url('https://res.cloudinary.com/dvhwz7ptr/raw/upload/xetx7zkgq167rz53newa.ttf');
 }
 
 @font-face {
   font-family: CardinalR;
-  src: url(../assets/fonts/cardinalfruitweb-regular.ttf);
+  src: url('https://res.cloudinary.com/dvhwz7ptr/raw/upload/nwhzfmr31jznbvu8gaph.ttf');
 }
 
 @font-face {
   font-family: Cardinali;
-  src: url(../assets/fonts/cardinalfruitweb-italic.ttf);
+  src: url('https://res.cloudinary.com/dvhwz7ptr/raw/upload/tb9zxdwfjikmzjg3khf3.ttf');
 }
 
 .main-p{
