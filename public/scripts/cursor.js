@@ -6,6 +6,16 @@ var box4 = document.querySelector("#white");
 
 document.addEventListener("contextmenu", (e) => e.preventDefault(), false);
 
+document.addEventListener("keydown", (event) => {
+  if (
+    
+    (event.ctrlKey &&
+      (event.key === "U" || event.key === "Shift" || event.key === "I"))
+  ) {
+    event.preventDefault();
+  }
+});
+
 document.body.addEventListener("mousemove", function (dets) {
   gsap.to(circle, {
     x: dets.clientX,

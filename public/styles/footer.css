@@ -9,5 +9,19 @@
     font-size: 0.9em;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
   }
+
+  .color-change {
+    background-color: black;
+    color: #ffffff;
+    padding: 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.color-change:hover,
+.color-change:active,
+.color-change:focus {
+    color: rgb(190, 190, 190);
+}

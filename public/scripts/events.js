@@ -149,7 +149,7 @@ function swapSecond() {
 }
 
 function swapThird() {
-  if (!i.style.backgroundImage.includes("../assets/images/thirdimage.jpg")) {
+  if (!i.style.backgroundImage.includes("../assets/images/astellar.webp")) {
     p.textContent =
       "Hallo, es ist sehr schwierig, das Fett loszuwerden. Macht es große Freude daran? Zu diesem Zeitpunkt wird jemand darunter leiden oder ihn sogar hassen, denn wenn wir dazu geboren werden, zu wählen, werden wir Probleme haben!";
     i.style.opacity = 0;
@@ -170,7 +170,7 @@ function swapThird() {
     btn3.style.marginLeft = "0";
     btn3.style.marginRight = "0";
     setTimeout(function () {
-      i.style.backgroundImage = "url('../assets/images/thirdimage.jpg')";
+      i.style.backgroundImage = "url('../assets/images/astellar.webp')";
       i.style.opacity = 1;
       p.style.opacity = 1;
     }, 300);
