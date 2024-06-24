@@ -26,7 +26,7 @@ document.body.addEventListener("mousemove", function (dets) {
 
 if (box1) {
   box1.addEventListener("mouseenter", function () {
-    circle.innerHTML = `<img src="../assets/images/horizontal.png" alt="" width="13px">`;
+    circle.innerHTML = `<img src="https://res.cloudinary.com/dvhwz7ptr/image/upload/f_auto,q_auto/hcaxznv5rz3tw4dbuuoi" alt="" width="13px">`;
     gsap.to(circle, {
       duration: 0.6,
       scale: 2.5,

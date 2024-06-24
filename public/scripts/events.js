@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function swapFirst() {
-  if (!i.style.backgroundImage.includes("../assets/images/delta.webp")) {
+  if (!i.style.backgroundImage.includes("https://res.cloudinary.com/dvhwz7ptr/image/upload/f_auto,q_auto/jklg3dpf6y8otrqygk2h")) {
     p.textContent =
       "Delta, a three-day flagship event, featured a Cryptic Hunt on day 1, a Treasure Hunt on day 2, and a Gaming Night on day 3, offering participants a blend of challenging puzzles, adventurous quests, and competitive gaming.";
     i.style.opacity = 0;
@@ -112,7 +112,7 @@ function swapFirst() {
     btn3.style.marginLeft = "0.1vw";
     btn3.style.marginRight = "0.1vw";
     setTimeout(function () {
-      i.style.backgroundImage = "url('../assets/images/delta.webp')";
+      i.style.backgroundImage = "url('https://res.cloudinary.com/dvhwz7ptr/image/upload/f_auto,q_auto/jklg3dpf6y8otrqygk2h')";
       i.style.opacity = 1;
       p.style.opacity = 1;
     }, 300);
@@ -120,7 +120,7 @@ function swapFirst() {
 }
 
 function swapSecond() {
-  if (!i.style.backgroundImage.includes("../assets/images/astellar.webp")) {
+  if (!i.style.backgroundImage.includes("https://res.cloudinary.com/dvhwz7ptr/image/upload/f_auto,q_auto/wahswfysi62covjwfzcd")) {
     p.textContent =
       "Astellar featured a 24-hour Cryptic Hunt followed by a Gaming Night, offering participants the chance to win prizes worth ₹12,000. It combined intellectual challenge with competitive gaming for an engaging and rewarding experience.";
     i.style.opacity = 0;
@@ -141,7 +141,7 @@ function swapSecond() {
     btn3.style.marginLeft = "0.1vw";
     btn3.style.marginRight = "0.1vw";
     setTimeout(function () {
-      i.style.backgroundImage = "url('../assets/images/astellar.webp')";
+      i.style.backgroundImage = "url('https://res.cloudinary.com/dvhwz7ptr/image/upload/f_auto,q_auto/wahswfysi62covjwfzcd')";
       i.style.opacity = 1;
       p.style.opacity = 1;
     }, 300);
