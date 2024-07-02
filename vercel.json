@@ -1,0 +1,31 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "server/app.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "public/**/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "server/app.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/public/$1"
+      }
+    ],
+    "env": {
+      "NODE_ENV": "production",
+      "PORT": "3000",
+      "MONGODB_URI": "mongodb+srv://omrajpal:1122334455@cluster0.tva2yqz.mongodb.net/mlscWebsite",
+      "email": "omrajpal.exe@gmail.com",
+      "pass": "njmf ykzh figm xdha"
+    }
+  }
+  
