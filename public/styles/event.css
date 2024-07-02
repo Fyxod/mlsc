@@ -79,7 +79,7 @@
 #projectimg {
   border-radius: 2vw;
   background-image: url("https://res.cloudinary.com/dvhwz7ptr/image/upload/f_auto,q_auto/jklg3dpf6y8otrqygk2h");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   transition: all 0.3s ease-in-out;
   width: 55vw;
@@ -93,9 +93,7 @@
     padding: 4vw;
   }
   #projectitles {
-    height: 25vw;
     font-weight: 600;
-    font-size: 4vw;
   }
   #projectitles button {
     width: 15vw;
@@ -103,27 +101,6 @@
   }
   #projectinfo {
     font-size: 3vw;
-  }
-}
-
-@media (max-width: 1500px) {
-  #aboutprojects {
-    height: 60vw;
-  }
-  #projects {
-    padding: 4vw;
-  }
-  #projectitles {
-    height: 30vw;
-    font-weight: 600;
-    font-size: 3vw;
-  }
-  #projectitles button {
-    width: 15vw;
-    height: 10vw;
-  }
-  #projectinfo {
-    font-size: 2vw;
   }
 }
 
