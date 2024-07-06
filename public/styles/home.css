@@ -1,3 +1,27 @@
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #00000000;
+  border-radius: 2px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: #00000000;
+  border-radius: 4px;
+
+}
+
+html::-webkit-scrollbar-track {
+  background: #00000000;
+  border-radius: 0%;
+}
+
+html::-webkit-scrollbar-track:hover {
+  background: #00000000;
+}
+
 #spline-container {
   width: 100vw;
   height: 100vh;
@@ -96,7 +120,7 @@ spline-viewer {
   font-variation-settings: "wdth" 100;
 }
 
-.swiper-slide img{
+.swiper-slide img {
   width: 2.5vw;
   opacity: 0.65;
 }
@@ -159,26 +183,26 @@ spline-viewer {
 
 @font-face {
   font-family: Founder;
-  src: url('https://res.cloudinary.com/dvhwz7ptr/raw/upload/xetx7zkgq167rz53newa.ttf');
+  src: url("https://res.cloudinary.com/dvhwz7ptr/raw/upload/xetx7zkgq167rz53newa.ttf");
 }
 
 @font-face {
   font-family: CardinalR;
-  src: url('https://res.cloudinary.com/dvhwz7ptr/raw/upload/nwhzfmr31jznbvu8gaph.ttf');
+  src: url("https://res.cloudinary.com/dvhwz7ptr/raw/upload/nwhzfmr31jznbvu8gaph.ttf");
 }
 
 @font-face {
   font-family: Cardinali;
-  src: url('https://res.cloudinary.com/dvhwz7ptr/raw/upload/tb9zxdwfjikmzjg3khf3.ttf');
+  src: url("https://res.cloudinary.com/dvhwz7ptr/raw/upload/tb9zxdwfjikmzjg3khf3.ttf");
 }
 
-.main-p{
+.main-p {
   width: 100%;
   height: 100vh;
   background-color: rgb(61, 61, 61);
 }
 
-#main{
+#main {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -186,7 +210,7 @@ spline-viewer {
   overflow: hidden;
 }
 
-#top{
+#top {
   position: absolute;
   top: 0%;
   width: 100%;
@@ -196,17 +220,17 @@ spline-viewer {
   overflow: hidden;
 }
 
-#center{
+#center {
   position: relative;
   width: 100%;
   height: 100vh;
   transform-origin: center;
   background-color: rgb(0, 0, 0);
-  transition: all cubic-bezier(0.19, 1, 0.22, 1)1s;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
   overflow: hidden;
 }
 
-#bottom{
+#bottom {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -215,7 +239,7 @@ spline-viewer {
   overflow: hidden;
 }
 
-#main h1{
+#main h1 {
   font-family: Founder;
   font-size: 22vw;
   position: absolute;
@@ -224,15 +248,15 @@ spline-viewer {
   transform: translate(-50%, -50%);
 }
 
-#top-h1{
+#top-h1 {
   bottom: 43%;
 }
 
-#bottom-h1{
+#bottom-h1 {
   top: 0% !important;
 }
 
-.content{
+.content {
   margin-top: 100vh;
   display: flex;
   flex-direction: column;
@@ -244,12 +268,12 @@ spline-viewer {
   gap: 4vh;
 }
 
-.content h4{
+.content h4 {
   font-size: 1vw;
   font-family: Founder;
 }
 
-.content h3{
+.content h3 {
   width: 22%;
   font-size: 3vw;
   font-family: CardinalR;
@@ -257,7 +281,7 @@ spline-viewer {
   font-weight: 400;
 }
 
-.content .btn{
+.content .btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,19 +293,18 @@ spline-viewer {
   font-family: Founder;
 }
 
-.content h2{
+.content h2 {
   font-size: 20vw;
   font-family: Founder;
 }
 
-
-.part-2{
+.part-2 {
   width: 100%;
   height: 70vh;
   background-color: #fff;
 }
 
-.rounded-div-wrapper{
+.rounded-div-wrapper {
   position: relative;
   width: 100%;
   height: 100px;
@@ -289,9 +312,9 @@ spline-viewer {
   margin-top: -100px;
 }
 
-.rounded-div{
+.rounded-div {
   position: absolute;
-  left: 50%;    
+  left: 50%;
   width: 150%;
   height: 750%;
   border-radius: 50%;
@@ -299,7 +322,7 @@ spline-viewer {
   transform: translate(-50%);
 }
 
-.content-2{
+.content-2 {
   position: relative;
   display: flex;
   align-items: center;
@@ -309,37 +332,38 @@ spline-viewer {
   overflow: hidden;
 }
 
-.text-area{
+.text-area {
   position: absolute;
-  opacity: .2;
+  opacity: 0.2;
   left: 5%;
   width: 100%;
   font-weight: 800;
-
 }
 
-.text-area-hover{
+.text-area-hover {
   position: absolute;
   left: 5%;
   opacity: 1;
 }
 
-.text-area h1, .text-area-hover h1{
+.text-area h1,
+.text-area-hover h1 {
   font-size: 7vw;
 }
 
-.text-area h2, .text-area-hover h2{
+.text-area h2,
+.text-area-hover h2 {
   margin-left: 5vw;
   font-size: 7vw;
 }
 
-.text-area-hover h1{
+.text-area-hover h1 {
   width: 0%;
   text-wrap: nowrap;
   overflow: hidden;
 }
 
-.text-area-hover h2{
+.text-area-hover h2 {
   width: 0%;
   text-wrap: nowrap;
   overflow: hidden;

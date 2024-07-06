@@ -149,9 +149,9 @@ function swapSecond() {
 }
 
 function swapThird() {
-  if (!i.style.backgroundImage.includes("../assets/images/astellar.webp")) {
+  if (!i.style.backgroundImage.includes("https://res.cloudinary.com/dvhwz7ptr/image/upload/v1720270811/IMG_5810_llmfr4.png")) {
     p.textContent =
-      "Hallo, es ist sehr schwierig, das Fett loszuwerden. Macht es große Freude daran? Zu diesem Zeitpunkt wird jemand darunter leiden oder ihn sogar hassen, denn wenn wir dazu geboren werden, zu wählen, werden wir Probleme haben!";
+      " Participants faced off in thrilling multiplayer tournaments, showcasing their skills in popular games across various genres. The competitive spirit was high, with teams and solo players battling it out for top honors and enticing prizes.";
     i.style.opacity = 0;
     p.style.opacity = 0;
     btn1.style.color = "rgba(92, 92, 92, 0.736)";
@@ -170,7 +170,7 @@ function swapThird() {
     btn3.style.marginLeft = "0";
     btn3.style.marginRight = "0";
     setTimeout(function () {
-      i.style.backgroundImage = "url('../assets/images/astellar.webp')";
+      i.style.backgroundImage = "url('https://res.cloudinary.com/dvhwz7ptr/image/upload/v1720270811/IMG_5810_llmfr4.png')";
       i.style.opacity = 1;
       p.style.opacity = 1;
     }, 300);

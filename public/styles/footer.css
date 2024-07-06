@@ -1,7 +1,7 @@
 
 #footer {
     width:100vw;
-    height: 40px;
+    height: 5vh;
     background-color: #0b0b0b;
     color: #ffffffc9;
     text-align: center;
@@ -13,11 +13,10 @@
   }
 
   .color-change {
-    background-color: black;
     color: #ffffff;
     padding: 10px;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.3s; 
 }
 
 .color-change:hover,
