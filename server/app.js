@@ -8,6 +8,8 @@ import formRoute from "./src/routes/form.js";
 import connectMongo from "./src/db/mongoose.js";
 import cookieParser from "cookie-parser";
 import mongoSanitize from "express-mongo-sanitize";
+import rateLimiter from "./src/middlewares/rateLimiter.js";
+
 dotenv.config();
 
 const app = express();
@@ -17,6 +19,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Middleware setup
+app.use(rateLimiter)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
