@@ -26,6 +26,7 @@ const transporter = nodemailer.createTransport({
       subject: `Hello ${response.name}`,
       html: emailHtml,
     });
+    console.log(info)
   }
 
   export default sendMail;

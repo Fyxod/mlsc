@@ -3,6 +3,7 @@ import ExcelJS from 'exceljs'
 import Form from '../models/forms.js';
 import sendMail from '../services/mail.js';
 import z from 'zod';
+import checkAuth from '../middlewares/auth.js';
 
 const router = express.Router();
 
@@ -10,19 +11,25 @@ const formsSchema = z.object({
     name: z.string().min(1, { message: "Please enter your name" }),
     email: z.string().email({ message: "Please enter a valid email address" }),
     phoneNumber: z.string().min(10, { message: "Please enter your phone number" }),
-    department: z.enum(['Tech', 'Design', 'Management'], { message: "Please select a department" })
+    department: z.enum(['Tech', 'Design', 'Management'], { message: "Please select a department" }),
+    futureVision: z.string().min(1, { message: "Please answer all the questions" }),
+    projectLinks: z.string().min(1, { message: "Please answer all the questions" }),
+    videoGame: z.string().min(1, { message: "Please answer all the questions" }),
 });
 
 
 router.post('/form', async (req, res) => {
     try {
-        const { name, email, phoneNumber, department } = formsSchema.parse(req.body);
+        const { name, email, phoneNumber, department, futureVision, projectLinks, videoGame } = formsSchema.parse(req.body);
 
         const form = new Form({
             name,
             email,
             phoneNumber,
-            department
+            department,
+            futureVision,
+            projectLinks,
+            videoGame
         });
 
         await form.save();
@@ -36,7 +43,7 @@ router.post('/form', async (req, res) => {
 });
 
 
-router.get('/download-excel', async (req, res) => {
+router.get('/download-excel', checkAuth, async (req, res) => {
     try {
         const responses = await Form.find().lean();
 

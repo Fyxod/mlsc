@@ -17,7 +17,19 @@ const formsSchema = new mongoose.Schema({
         type: String,
         enum: ['Tech', 'Design', 'Management'],
         required: true
-    }
+    },
+    futureVision: {
+        type: String,
+        required: [true, "Please answer the question"]
+    },
+    projectLinks: {
+        type: String,
+        required: [true, "Please answer the question"]
+    },
+    videoGame: {
+        type: String,
+        required: [true, "Please answer the question"]
+    },
 }, {
     timestamps: true
 });
