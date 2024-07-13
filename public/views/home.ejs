@@ -87,62 +87,113 @@
       // Call logMessages every 2 seconds
       setInterval(logMessages, 2000);
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const splineContainer = document.getElementById("spline-container");
-        const observer = new IntersectionObserver(
-          function (entries) {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                if (!document.querySelector("spline-viewer")) {
-                  const splineViewer = document.createElement("spline-viewer");
-                  splineViewer.setAttribute(
-                    "loading-anim-type",
-                    "spinner-small-light"
-                  );
-                  splineViewer.setAttribute(
-                    "url",
-                    "https://prod.spline.design/j9hK2tR8NoYP955v/scene.splinecode"
-                  );
-                  splineContainer.appendChild(splineViewer);
-                }
-              } else {
-                const splineViewer = document.querySelector("spline-viewer");
-                if (splineViewer) {
-                  splineContainer.removeChild(splineViewer);
-                }
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const splineContainer = document.getElementById("spline-container");
+      const splineUrl = "https://prod.spline.design/j9hK2tR8NoYP955v/scene.splinecode";
+      const dbName = "splineDB";
+      const storeName = "splineStore";
+
+      function initDB() {
+        return new Promise((resolve, reject) => {
+          const request = indexedDB.open(dbName, 1);
+
+          request.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            db.createObjectStore(storeName);
+          };
+
+          request.onsuccess = (event) => {
+            resolve(event.target.result);
+          };
+
+          request.onerror = (event) => {
+            reject(event.target.error);
+          };
+        });
+      }
+
+      async function fetchAndCacheResource(url) {
+        const response = await fetch(url);
+        const data = await response.blob();
+        const db = await initDB();
+        const transaction = db.transaction(storeName, "readwrite");
+        const store = transaction.objectStore(storeName);
+        store.put(data, url);
+        return data;
+      }
+
+      async function getCachedResource(url) {
+        const db = await initDB();
+        return new Promise((resolve, reject) => {
+          const transaction = db.transaction(storeName, "readonly");
+          const store = transaction.objectStore(storeName);
+          const request = store.get(url);
+
+          request.onsuccess = (event) => {
+            if (event.target.result) {
+              resolve(event.target.result);
+            } else {
+              fetchAndCacheResource(url).then(resolve).catch(reject);
+            }
+          };
+
+          request.onerror = (event) => {
+            reject(event.target.error);
+          };
+        });
+      }
+
+      const observer = new IntersectionObserver(
+        async function (entries) {
+          entries.forEach(async (entry) => {
+            if (entry.isIntersecting) {
+              if (!document.querySelector("spline-viewer")) {
+                const splineViewer = document.createElement("spline-viewer");
+                splineViewer.setAttribute("loading-anim-type", "spinner-small-light");
+                const cachedBlob = await getCachedResource(splineUrl);
+                const splineBlobUrl = URL.createObjectURL(cachedBlob);
+                splineViewer.setAttribute("url", splineBlobUrl);
+                splineContainer.appendChild(splineViewer);
+              }
+            } else {
+              const splineViewer = document.querySelector("spline-viewer");
+              if (splineViewer) {
+                splineContainer.removeChild(splineViewer);
+              }
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      observer.observe(splineContainer);
+
+      const config = { childList: true, subtree: true };
+      const callback = function (mutationsList, observer) {
+        for (const mutation of mutationsList) {
+          if (mutation.type === "childList") {
+            mutation.addedNodes.forEach((node) => {
+              if (node.tagName === "SPLINE-VIEWER") {
+                const interval = setInterval(() => {
+                  const shadowRoot = node.shadowRoot;
+                  const logo = shadowRoot.querySelector("#logo");
+                  if (logo) {
+                    logo.remove();
+                    clearInterval(interval);
+                  }
+                }, 10);
               }
             });
-          },
-          { threshold: 0.5 }
-        );
-
-        observer.observe(splineContainer);
-
-        const config = { childList: true, subtree: true };
-        const callback = function (mutationsList, observer) {
-          for (const mutation of mutationsList) {
-            if (mutation.type === "childList") {
-              mutation.addedNodes.forEach((node) => {
-                if (node.tagName === "SPLINE-VIEWER") {
-                  const interval = setInterval(() => {
-                    const shadowRoot = node.shadowRoot;
-                    const logo = shadowRoot.querySelector("#logo");
-                    if (logo) {
-                      logo.remove();
-                      clearInterval(interval);
-                    }
-                  }, 10);
-                }
-              });
-            }
           }
-        };
+        }
+      };
 
-        const mutationObserver = new MutationObserver(callback);
-        mutationObserver.observe(document.body, config);
-      });
-    </script>
+      const mutationObserver = new MutationObserver(callback);
+      mutationObserver.observe(document.body, config);
+    });
+</script>
+
   </head>
   <body>
     <div id="loader">
