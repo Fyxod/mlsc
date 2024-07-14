@@ -108,7 +108,7 @@ spline-viewer {
   border-right: 1px solid #72727293;
  
   padding: 0 2vw;
-  height: 100%;
+  height: 16vw;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -169,12 +169,15 @@ spline-viewer {
   .swiper-slide {
     width: 200px;
     padding: 0 1vw;
-    height: 300px;
+    height: 16vw;
   }
 
   .swiper-slide p {
     margin-top: 1px;
     font-size: 1.2vw;
+  }
+  #gola {
+    margin: 0.65vw 2vw;
   }
 
 }
