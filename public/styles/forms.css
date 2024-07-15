@@ -1,20 +1,138 @@
 #forms {
   display: flex;
-  align-items: center; 
+  align-items: start; 
   justify-content: center;
   width: 100vw;
   background-color: white;
-  height: 60vh;
-  top: 50%;
-  left: 50%; 
-  padding: 30px;
+  padding-bottom: 100px;
 }
+
+#name {
+  width: 250px;
+}
+
+#email {
+  width: 350px;
+}
+
+#phoneNumber {
+  width: 200px;
+}
+
+#department {
+  width: auto; /* No width specified, adjust as needed */
+}
+
+#ques2 {
+  width: 300px;
+}
+
+#ques3 {
+  width: 220px;
+}
+
+#ques1 {
+  width: 570px;
+}
+
+
+@media screen and (max-width: 480px){
+
+  #name {
+    width: 18vw;
+    font-size: 8px;
+
+  }
+  
+  #email {
+    width: 40vw;
+    font-size: 8px;
+
+  }
+  
+  #phoneNumber {
+    width: 32vw;
+    font-size: 8px;
+
+  }
+  
+  #department {
+    width: auto;
+    font-size: 8px;
+
+  }
+  
+  #ques2 {
+    width: 48vw;  
+    font-size: 8px;
+
+  }
+  
+  #ques3 {
+    width: 35vw;
+    font-size: 8px;
+
+  }
+  
+  #ques1 {
+    width: 90vw;
+    font-size: 8px;
+
+  }
+  
+}
+@media screen and (max-width: 600px){
+
+  #name {
+    width: 18vw;
+    font-size: 12px;
+
+  }
+  
+  #email {
+    width: 40vw;
+    font-size: 12px;
+
+  }
+  
+  #phoneNumber {
+    width: 32vw;
+    font-size: 12px;
+
+  }
+  
+  #department {
+    width: auto;
+    font-size: 12px;
+
+  }
+  
+  #ques2 {
+    width: 48vw;  
+    font-size: 12px;
+
+  }
+  
+  #ques3 {
+    width: 35vw;
+    font-size: 12px;
+
+  }
+  
+  #ques1 {
+    width: 90vw;
+    font-size: 12px;
+
+  }
+  
+}
+
 
 #container {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 60%;
   height: 80%;
   padding: 20px;
 }
