@@ -65,7 +65,7 @@ spline-viewer {
 
 #infinite-text h1 {
   color: rgba(255, 255, 255, 0.656);
-  font-size: 8vw;
+  font-size: 130px;
   display: inline-block;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
@@ -74,12 +74,12 @@ spline-viewer {
 }
 
 #gola {
-  height: 2.5vw;
-  width: 2.5vw;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   background-color: rgb(31, 146, 146);
   display: inline-block;
-  margin: 1.5vw 1vw;
+  margin:  17px;
 }
 
 @keyframes move {
@@ -161,30 +161,42 @@ spline-viewer {
 }
 
 /* Responsive Styles */
-@media (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   #infinite-text h1 {
-    font-size: 5vw;
+    font-size: 110px;
   }
 
-  .swiper-slide {
-    width: 200px;
-    padding: 0 1vw;
-    height: 16vw;
-  }
-
-  .swiper-slide p {
-    margin-top: 1px;
-    font-size: 1.2vw;
-  }
   #gola {
-    margin: 0.65vw 2vw;
+    height: 40px;
+    width: 40px;
+    margin: 15px;
   }
 
 }
 
-@media (max-width: 480px) {
+
+@media screen and (max-width: 800px) {
   #infinite-text h1 {
-    font-size: 4vw;
+    font-size: 60px;
+  }
+
+  #gola {
+    height: 26px;
+    width: 26px;
+    margin: 7px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  #infinite-text h1 {
+    font-size: 55px;
+  }
+
+  #gola {
+    height: 22px;
+    width: 22px;
+    margin: 7px;
   }
 
   .swiper-slide {
