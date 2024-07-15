@@ -37,19 +37,22 @@
   justify-content: center;
   align-items: center;
   padding: 0 2vw;
-  padding-top: 2vh;
+  padding-top: 1vh;
 }
 
 #bottom-links {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: CardinalR;
-  text-align: justify;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;  text-align: justify;
   height: 100%;
   font-weight: 400;
   width: 100%;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 #bottom-links div {
@@ -65,8 +68,12 @@
 #socials a {
   color: #fff;
   text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;  text-align: justify;
+  font-size: 14px;
   font-weight: 400;
-  font-size: 17px;
 }
 
 #socials a:hover {
@@ -78,11 +85,11 @@
         height: 45vh;
     }
     #bottom-links{
-        font-size: 15px;
+        font-size: 13px;
     }
 
     #socials a{
-        font-size: 15px;
+        font-size: 13px;
     }
 
     #footer h1{ 
@@ -92,30 +99,35 @@
 
 @media screen and (max-width: 768px){
 
+  #page5{
+    height: 35vh;
+
+}
+
     #bottom-links{
-        font-size: 13px;
+        font-size: 10.5px;
     }
 
     #socials a{
-        font-size: 13px;
+        font-size: 10.5px;
     }
 
     #footer h1{ 
-        font-size: 110px;
+        font-size: 100px;
     }
 }
 
 @media screen and (max-width: 480px){
     #page5{
-        height: 30vh;
+        height: 25vh;
     
     }
     #bottom-links{
-        font-size: 10px;
+        font-size: 8px;
     }
 
     #socials a{
-        font-size: 10px;
+        font-size: 8px;
     }
 
     #footer h1{ 
