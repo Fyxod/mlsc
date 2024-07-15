@@ -15,3 +15,9 @@
   pointer-events: none;
   transition: width 0.2s, height 0.2s, background-color 0.2s, border 0.2s;
 }
+
+@media screen and (max-width: 768px){
+  #circle{
+    visibility: hidden;
+  }
+}
