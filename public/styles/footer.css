@@ -1,29 +1,124 @@
+@font-face {
+  font-family: CardinalR;
+  src: url("https://res.cloudinary.com/dvhwz7ptr/raw/upload/nwhzfmr31jznbvu8gaph.ttf");
+}
 
 #page5 {
-    height: 100vh;
-    width: 100%;
+  height: 50vh;
+  width: 100%;
 }
 
 #footer {
-    position: fixed;
-    height: 105vh;
-    width: 100%;
-    background-color: #000;
-    color: #fff;
-    z-index: -3;
-    bottom: 0;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    padding: 1vw 3vw;
+  position: fixed;
+  height: 55vh;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  z-index: -3;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 1vw 3vw;
 }
 
 #footer h1 {
-    font-size: 23vw;
+  font-size: 200px;
+  font-family: CardinalR;
+  font-weight: 400;
+  text-align: center;
 }
 
 #footer-bottom {
-    border-top: 1px solid #dadada;
-    height: 10vh;
-    width: 100%;
+  border-top: 1px solid #606060;
+  height: 4vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2vw;
+  padding-top: 2vh;
+}
+
+#bottom-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: CardinalR;
+  text-align: justify;
+  height: 100%;
+  font-weight: 400;
+  width: 100%;
+  font-size: 17px;
+}
+
+#bottom-links div {
+  flex: 1;
+  text-align: center;
+}
+
+#socials {
+  display: flex;
+  justify-content: space-between;
+}
+
+#socials a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 17px;
+}
+
+#socials a:hover {
+  text-decoration: underline;
+}
+ 
+@media screen and (max-width: 1200px){
+    #page5 {
+        height: 45vh;
+    }
+    #bottom-links{
+        font-size: 15px;
+    }
+
+    #socials a{
+        font-size: 15px;
+    }
+
+    #footer h1{ 
+        font-size: 150px;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    #bottom-links{
+        font-size: 13px;
+    }
+
+    #socials a{
+        font-size: 13px;
+    }
+
+    #footer h1{ 
+        font-size: 110px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    #page5{
+        height: 30vh;
+    
+    }
+    #bottom-links{
+        font-size: 10px;
+    }
+
+    #socials a{
+        font-size: 10px;
+    }
+
+    #footer h1{ 
+        font-size: 70px;
+    }
 }
