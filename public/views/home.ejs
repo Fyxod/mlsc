@@ -23,7 +23,13 @@
     <link rel="stylesheet" href="../styles/nav.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link
       rel="shortcut icon"
       href="https://res.cloudinary.com/dvhwz7ptr/image/upload/f_auto,q_auto/qubw0db5njuheicndqst"
@@ -48,7 +54,7 @@
     <script>
       const lightBlue = "\x1b[94m";
       const reset = "\x1b[0m";
-    
+
       var asciiArt = `
     ███╗   ███╗██╗     ███████╗ ██████╗ 
     ████╗ ████║██║     ██╔════╝██╔════╝ 
@@ -57,144 +63,147 @@
     ██║ ╚═╝ ██║███████╗███████║╚██████╗
     ╚═╝     ╚═╝╚══════╝╚══════╝ ╚═════╝
     `;
-    
+
       function customConsoleLog(message, style) {
         console.log(`%c${message}`, style);
       }
-    
+
       function disableConsoleMethods() {
         console.log = function () {};
         console.warn = function () {};
         console.error = function () {};
       }
-    
+
       function logMessages() {
         customConsoleLog(
           "You finally entered the console😈!",
           "color: red; font-size: 20px; font-weight: bold; text-shadow: 2px 2px 0px rgba(0,0,0,0.3);"
         );
-    
+
         customConsoleLog(
           asciiArt,
           "color: rgb(31, 146, 146); font-size: 14px;"
         );
-    
+
         customConsoleLog(
           "Have a great day!",
           "color: green; font-size: 18px; font-style: italic; background-color: yellow; padding: 2px 4px;"
         );
       }
-    
+
       // Call logMessages every 2 seconds
       setInterval(logMessages, 2000);
     </script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const splineContainer = document.getElementById("spline-container");
-      const splineUrl = "https://prod.spline.design/j9hK2tR8NoYP955v/scene.splinecode";
-      const dbName = "splineDB";
-      const storeName = "splineStore";
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const splineContainer = document.getElementById("spline-container");
+        const splineUrl =
+          "https://prod.spline.design/j9hK2tR8NoYP955v/scene.splinecode";
+        const dbName = "splineDB";
+        const storeName = "splineStore";
 
-      function initDB() {
-        return new Promise((resolve, reject) => {
-          const request = indexedDB.open(dbName, 1);
+        function initDB() {
+          return new Promise((resolve, reject) => {
+            const request = indexedDB.open(dbName, 1);
 
-          request.onupgradeneeded = (event) => {
-            const db = event.target.result;
-            db.createObjectStore(storeName);
-          };
+            request.onupgradeneeded = (event) => {
+              const db = event.target.result;
+              db.createObjectStore(storeName);
+            };
 
-          request.onsuccess = (event) => {
-            resolve(event.target.result);
-          };
-
-          request.onerror = (event) => {
-            reject(event.target.error);
-          };
-        });
-      }
-
-      async function fetchAndCacheResource(url) {
-        const response = await fetch(url);
-        const data = await response.blob();
-        const db = await initDB();
-        const transaction = db.transaction(storeName, "readwrite");
-        const store = transaction.objectStore(storeName);
-        store.put(data, url);
-        return data;
-      }
-
-      async function getCachedResource(url) {
-        const db = await initDB();
-        return new Promise((resolve, reject) => {
-          const transaction = db.transaction(storeName, "readonly");
-          const store = transaction.objectStore(storeName);
-          const request = store.get(url);
-
-          request.onsuccess = (event) => {
-            if (event.target.result) {
+            request.onsuccess = (event) => {
               resolve(event.target.result);
-            } else {
-              fetchAndCacheResource(url).then(resolve).catch(reject);
-            }
-          };
+            };
 
-          request.onerror = (event) => {
-            reject(event.target.error);
-          };
-        });
-      }
-
-      const observer = new IntersectionObserver(
-        async function (entries) {
-          entries.forEach(async (entry) => {
-            if (entry.isIntersecting) {
-              if (!document.querySelector("spline-viewer")) {
-                const splineViewer = document.createElement("spline-viewer");
-                splineViewer.setAttribute("loading-anim-type", "spinner-small-light");
-                const cachedBlob = await getCachedResource(splineUrl);
-                const splineBlobUrl = URL.createObjectURL(cachedBlob);
-                splineViewer.setAttribute("url", splineBlobUrl);
-                splineContainer.appendChild(splineViewer);
-              }
-            } else {
-              const splineViewer = document.querySelector("spline-viewer");
-              if (splineViewer) {
-                splineContainer.removeChild(splineViewer);
-              }
-            }
+            request.onerror = (event) => {
+              reject(event.target.error);
+            };
           });
-        },
-        { threshold: 0.5 }
-      );
+        }
 
-      observer.observe(splineContainer);
+        async function fetchAndCacheResource(url) {
+          const response = await fetch(url);
+          const data = await response.blob();
+          const db = await initDB();
+          const transaction = db.transaction(storeName, "readwrite");
+          const store = transaction.objectStore(storeName);
+          store.put(data, url);
+          return data;
+        }
 
-      const config = { childList: true, subtree: true };
-      const callback = function (mutationsList, observer) {
-        for (const mutation of mutationsList) {
-          if (mutation.type === "childList") {
-            mutation.addedNodes.forEach((node) => {
-              if (node.tagName === "SPLINE-VIEWER") {
-                const interval = setInterval(() => {
-                  const shadowRoot = node.shadowRoot;
-                  const logo = shadowRoot.querySelector("#logo");
-                  if (logo) {
-                    logo.remove();
-                    clearInterval(interval);
-                  }
-                }, 10);
+        async function getCachedResource(url) {
+          const db = await initDB();
+          return new Promise((resolve, reject) => {
+            const transaction = db.transaction(storeName, "readonly");
+            const store = transaction.objectStore(storeName);
+            const request = store.get(url);
+
+            request.onsuccess = (event) => {
+              if (event.target.result) {
+                resolve(event.target.result);
+              } else {
+                fetchAndCacheResource(url).then(resolve).catch(reject);
+              }
+            };
+
+            request.onerror = (event) => {
+              reject(event.target.error);
+            };
+          });
+        }
+
+        const observer = new IntersectionObserver(
+          async function (entries) {
+            entries.forEach(async (entry) => {
+              if (entry.isIntersecting) {
+                if (!document.querySelector("spline-viewer")) {
+                  const splineViewer = document.createElement("spline-viewer");
+                  splineViewer.setAttribute(
+                    "loading-anim-type",
+                    "spinner-small-light"
+                  );
+                  const cachedBlob = await getCachedResource(splineUrl);
+                  const splineBlobUrl = URL.createObjectURL(cachedBlob);
+                  splineViewer.setAttribute("url", splineBlobUrl);
+                  splineContainer.appendChild(splineViewer);
+                }
+              } else {
+                const splineViewer = document.querySelector("spline-viewer");
+                if (splineViewer) {
+                  splineContainer.removeChild(splineViewer);
+                }
               }
             });
+          },
+          { threshold: 0.5 }
+        );
+
+        observer.observe(splineContainer);
+
+        const config = { childList: true, subtree: true };
+        const callback = function (mutationsList, observer) {
+          for (const mutation of mutationsList) {
+            if (mutation.type === "childList") {
+              mutation.addedNodes.forEach((node) => {
+                if (node.tagName === "SPLINE-VIEWER") {
+                  const interval = setInterval(() => {
+                    const shadowRoot = node.shadowRoot;
+                    const logo = shadowRoot.querySelector("#logo");
+                    if (logo) {
+                      logo.remove();
+                      clearInterval(interval);
+                    }
+                  }, 10);
+                }
+              });
+            }
           }
-        }
-      };
+        };
 
-      const mutationObserver = new MutationObserver(callback);
-      mutationObserver.observe(document.body, config);
-    });
-</script>
-
+        const mutationObserver = new MutationObserver(callback);
+        mutationObserver.observe(document.body, config);
+      });
+    </script>
   </head>
   <body>
     <div id="loader">
@@ -248,7 +257,7 @@
         <p class="intro">What is Microsoft Learn Student Chapter?</p>
       </div>
       <div class="swiper">
-        <div class="swiper-wrapper">  
+        <div class="swiper-wrapper">
           <div class="swiper-slide">
             <img
               src="https://res.cloudinary.com/dvhwz7ptr/image/upload/f_auto,q_auto/b2rzo1l9ae6ijxjamsji"
@@ -320,8 +329,6 @@
       </div>
     </div>
 
-
-
     <div id="events">
       <div class="heading">
         <div class="dot"></div>
@@ -346,7 +353,7 @@
         <div id="projectimg"></div>
       </div>
     </div>
-    <div id="main" style="margin-top: 70px">
+    <div id="main">
       <div id="top">
         <h1 id="top-h1">TEAM'27</h1>
       </div>
@@ -427,34 +434,34 @@
 
             <div>
               <input
-              type="text"
-              id="ques2"
-              style="width: 300px"
-              name="futureVision"
-              class="inputbox"
-              placeholder="where do you see yourself in next 4 years?*"
-              required
-            />
+                type="text"
+                id="ques2"
+                style="width: 300px"
+                name="futureVision"
+                class="inputbox"
+                placeholder="where do you see yourself in next 4 years?*"
+                required
+              />
 
-            <input
-              type="text"
-              id="ques3"
-              style="width: 220px"
-              name="projectLinks"
-              class="inputbox"
-              placeholder="Paste your projects link if any"
-              required
-            />
+              <input
+                type="text"
+                id="ques3"
+                style="width: 220px"
+                name="projectLinks"
+                class="inputbox"
+                placeholder="Paste your projects link if any"
+                required
+              />
             </div>
             <input
-            type="text"
-            id="ques1"
-            style="width: 570px"
-            name="videoGame"
-            class="inputbox"
-            placeholder="If you were a character in a video game, what would be your special ability and why?*"
-            required
-          />
+              type="text"
+              id="ques1"
+              style="width: 570px"
+              name="videoGame"
+              class="inputbox"
+              placeholder="If you were a character in a video game, what would be your special ability and why?*"
+              required
+            />
             <input
               type="submit"
               value="Submit"
@@ -466,32 +473,11 @@
         </div>
       </div>
     </div>
-    <footer>
-      <div id="footer">
-        <p>Copyright &copy; MLSC '27</p>
-        <p>
-          <i>Made</i> with ❤ by team <i><b>MLSC '27</b></i>
-        </p>
-        <div style="display: flex">
-          <p style="margin-right: 20px">
-            <a
-              href="https://www.instagram.com/mlsc_db/"
-              target="_blank"
-              class="color-change"
-              >Instagram</a
-            >
-          </p>
-          <p>
-            <a
-              class="color-change"
-              href="https://www.linkedin.com/company/microsoft-learn-student-chapter-tiet"
-              target="_blank"
-              >LinkedIn</a
-            >
-          </p>
-        </div>
-      </div>
-    </footer>
+    <div id="page5"></div>
+    <div id="footer">
+      <h1>MLSC</h1>
+      <div id="footer-bottom"></div>
+    </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
       integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="

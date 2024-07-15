@@ -1,32 +1,30 @@
 
+#page5 {
+    height: 100vh;
+    width: 100%;
+    /* background-color: #EFEAE3; */
+}
+
 #footer {
-    width:100vw;
-    height: 5vh;
-    background-color: #0b0b0b;
-    color: #ffffffc9;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 0.85em;
+    position: fixed;
+    height: 105vh;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    z-index: -3;
+    bottom: 0;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .color-change {
-    color: #ffffff;
-    padding: 10px;
-    text-decoration: none;
-    transition: color 0.3s; 
+    justify-content: flex-end;
+    flex-direction: column;
+    padding: 1vw 3vw;
 }
 
-.color-change:hover,
-.color-change:active,
-.color-change:focus {
-    color: rgb(190, 190, 190);
+#footer h1 {
+    font-size: 23vw;
 }
 
-@media (max-width: 600px) {
-    #footer {
-        font-size: 0.7em;
-    }
+#footer-bottom {
+    border-top: 1px solid #dadada;
+    height: 10vh;
+    width: 100%;
 }

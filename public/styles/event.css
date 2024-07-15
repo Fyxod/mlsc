@@ -1,6 +1,6 @@
 #aboutprojects {
   background-color: #151515;
-  margin: 0 auto;
+  padding: 0 auto;
   width: 95vw;
   height: 37vw;
   border-radius: 2vw;
@@ -22,7 +22,6 @@
 #projectitles {
   display: flex;
   flex-direction: column;
-  height: 40vh;
   width: 100%;
   align-items: start;
   justify-content: end;
@@ -67,7 +66,7 @@
   text-align: justify;
   align-items: top;
   justify-content: center;
-  font-size: 1vw;
+  font-size: 13px;
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
@@ -84,26 +83,70 @@
   width: 55vw;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   #aboutprojects {
-    height: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95vh;
   }
   #projects {
     padding: 4vw;
+    height: 40vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
   #projectitles {
     font-weight: 600;
+    font-size: 30px;
   }
   #projectitles button {
-    width: 15vw;
+    font-size: 30px;
   }
   #projectinfo {
-    font-size: 3vw;
+    font-size: 13px;
+  }
+
+  #projectimg{
+    width: 100%;
+    height: 55vh;
+  }
+}
+
+@media (max-width: 480px) {
+  #aboutprojects {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95vh;
+  }
+  #projects {
+    padding: 4vw;
+    height: 40vh;
+    width: 100%;
+  }
+  #projectitles {
+    font-weight: 600;
+    font-size: 30px;
+  }
+  #projectitles button {
+    font-size: 30px;
+  }
+  #projectinfo {
+    font-size: 13px;
+  }
+
+  #projectimg{
+    width: 100%;
+    height: 55vh;
   }
 }
 
 #events {
   width: 100%;
   padding: 4vw 2vw;
-  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 70px;
+  background-color: #0b0b0b;
 }
