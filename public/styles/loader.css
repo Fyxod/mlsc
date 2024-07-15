@@ -14,7 +14,7 @@
   #loader h2 {
     position: absolute;
     color: transparent;
-    font-size: 4vw;
+    font-size: 45px;
     background: linear-gradient(to right, #2196f3, #00bfa5);
     -webkit-background-clip: text;
     background-clip: text;
@@ -49,5 +49,24 @@
     }
     100% {
       opacity: 0;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    #loader h2 {
+      font-size: 37px;
+    }
+  }
+  
+  
+  @media screen and (max-width: 800px) {
+    #loader h2 {
+      font-size: 35px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {    
+    #loader h2 {
+      font-size: 30px;
     }
   }
