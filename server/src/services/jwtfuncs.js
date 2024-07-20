@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 export function setUser(data) {
     try {
-        return jwt.sign(data, process.env.JWT_SECRET || 'notaverygoodsecret');
+        return jwt.sign(data, process.env.JWT_SECRET || 'notaverygoodsecret', { expiresIn: '3h' });
     } catch (err) {
         console.error('Token signing failed:', err);
         return null;

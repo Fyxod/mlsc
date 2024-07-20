@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import mainRoute from "./src/routes/main.js";
 import authRoute from "./src/routes/auth.js";
 import formRoute from "./src/routes/form.js";
-import connectMongo from "./src/db/mongoose.js";
+// import connectMongo from "./src/db/mongoose.js";
 import cookieParser from "cookie-parser";
 import mongoSanitize from "express-mongo-sanitize";
 import rateLimiter from "./src/middlewares/rateLimiter.js";
@@ -33,7 +33,7 @@ app.set("views", path.join(__dirname, "../public/views"));
 app.use(express.static(path.join(__dirname, "../public")));
 
 // MongoDB connection
-connectMongo();
+// connectMongo();
 
 // Routes
 app.get("/", (req, res) => {

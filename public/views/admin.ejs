@@ -7,12 +7,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responses</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .toggle {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        height: 52px;
+        background-color: red;
+        border-radius: 30px;
+        border: 2px solid gray;
+    }
+
+    .toggle:after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: gray;
+        top: 1px;
+        left: 1px;
+        transition: all 0.5s;
+    }
+
+    p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+
+    .checkbox:checked+.toggle::after {
+        left: 49px;
+    }
+
+    .checkbox:checked+.toggle {
+        background-color: green;
+    }
+
+    .checkbox {
+        display: none;
+    }
+    </style>
 </head>
 
 <body class="bg-gray-100">
     <div class="container mx-auto py-8">
         <div class="flex justify-between items-center mb-4">
             <h1 class="text-2xl font-bold">Responses (<%= responses.length %>)</h1>
+            <form action="/ambani" method="POST" id="adminForm">
+                <div>
+                    <h1 class="text-3xl inline-block transform translate-y-5">Registrations:</h1>
+                    <input type="checkbox" id="reg" class="checkbox" value="true" name="regActive" <% if(regActive){ %>
+                        checked <% } %> >
+                        
+                        <label for="reg" class="toggle">
+                            <p class="transform translate-y-3 translate-x-4">
+                                OFF ON
+                            </p>
+                        </label>
+                </div>
+            </form>
             <a href="/download-excel" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Generate Excel Sheet
             </a>
@@ -40,7 +93,10 @@
             </table>
         </div>
     </div>
+    <script>
+        document.querySelector('#reg').addEventListener('change', function() {
+            document.querySelector('#adminForm').submit();
+        });
+    </script>
 </body>
-
 </html>
-
