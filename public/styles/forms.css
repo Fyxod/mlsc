@@ -20,7 +20,7 @@
 }
 
 #department {
-  width: auto; /* No width specified, adjust as needed */
+  width: auto;
 }
 
 #ques2 {
@@ -40,48 +40,49 @@
 
   #name {
     width: 18vw;
-    font-size: 8px;
+    font-size: 10px;
 
   }
   
   #email {
     width: 40vw;
-    font-size: 8px;
+    font-size: 10px;
 
   }
   
   #phoneNumber {
     width: 32vw;
-    font-size: 8px;
+    font-size: 10px;
 
   }
   
   #department {
     width: auto;
-    font-size: 8px;
+    font-size: 10px;
 
   }
   
   #ques2 {
-    width: 48vw;  
-    font-size: 8px;
+    width: 65vw;  
+    font-size: 10px;
 
   }
   
   #ques3 {
-    width: 35vw;
-    font-size: 8px;
+    width: 45vw;
+    font-size: 10px;
 
   }
   
   #ques1 {
     width: 90vw;
-    font-size: 8px;
+    font-size: 10px;
 
   }
   
 }
-@media screen and (max-width: 600px){
+
+@media screen and (min-width: 481px) and (max-width: 600px) {
 
   #name {
     width: 18vw;
@@ -108,13 +109,13 @@
   }
   
   #ques2 {
-    width: 48vw;  
+    width: 60vw;  
     font-size: 12px;
 
   }
   
   #ques3 {
-    width: 35vw;
+    width: 45vw;
     font-size: 12px;
 
   }
