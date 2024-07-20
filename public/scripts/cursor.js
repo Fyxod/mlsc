@@ -8,9 +8,12 @@ document.addEventListener("contextmenu", (e) => e.preventDefault(), false);
 
 document.addEventListener("keydown", (event) => {
   if (
-    
     (event.ctrlKey &&
-      (event.key === "U" || event.key === "Shift" || event.key === "I"))
+      (event.key === "U" ||
+        event.key === "Shift" ||
+        event.key === "I" ||
+        event.key == "F12")) ||
+    event.key == "F12"
   ) {
     event.preventDefault();
   }
