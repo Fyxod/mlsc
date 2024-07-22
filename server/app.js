@@ -1,14 +1,16 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import mongoSanitize from "express-mongo-sanitize";
+import methodOverride from 'method-override';
+import helmet from 'helmet';
 import mainRoute from "./src/routes/main.js";
 import authRoute from "./src/routes/auth.js";
 import formRoute from "./src/routes/form.js";
-// import connectMongo from "./src/db/mongoose.js";
-import cookieParser from "cookie-parser";
-import mongoSanitize from "express-mongo-sanitize";
 import rateLimiter from "./src/middlewares/rateLimiter.js";
+import requestLogger from "./src/middlewares/requestLogger.js";
 
 dotenv.config();
 
@@ -19,11 +21,19 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Middleware setup
-app.use(rateLimiter)
+app.use(requestLogger);
+app.use(rateLimiter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(methodOverride("_method"));
 app.use(mongoSanitize());
+//helmet
+app.use(helmet.xssFilter()); 
+app.use(helmet.noSniff()); 
+app.use(helmet.ieNoOpen());
+app.use(helmet.hsts());
+app.use(helmet.referrerPolicy());
 
 // Set up view engine
 app.set("view engine", "ejs");
@@ -32,11 +42,8 @@ app.set("views", path.join(__dirname, "../public/views"));
 // Serve static files
 app.use(express.static(path.join(__dirname, "../public")));
 
-// MongoDB connection
-// connectMongo();
-
 // Routes
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
   res.render("home", { flash: null });
 });
 app.use(mainRoute);

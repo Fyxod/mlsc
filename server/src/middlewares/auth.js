@@ -1,15 +1,16 @@
-import { getUser } from '../services/jwtfuncs.js';
+import { getUser } from '../utils/jwtfuncs.js';
 
-export function checkAuth(req, res, next) {
+export default function checkAuth(req, res, next) {
   const token = req.cookies?.token;
   if (!token) {
     req.user = null;
     return next();
   }
-
+  
   const user = getUser(token);
+  if(!user){
+    res.clearCookie('token');
+  }
   req.user = user;
   return next();
 }
-
-export default checkAuth;

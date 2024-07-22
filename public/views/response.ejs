@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Response</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            position: relative;
+            padding-right: 50px; 
+        }
+        .delete-button {
+            position: absolute;
+            top: 50%;
+            right: 20px; 
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .response-item {
+            margin-bottom: 20px;
+        }
+        .response-item label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .response-item p {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            word-wrap: break-word; 
+            white-space: pre-wrap; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Form Response
+            <form action="/ambani/response/<%= response._id %>?_method=DELETE" method="post">
+                <button class="delete-button">
+                    <img width="32" height="32"
+                        src="https://res.cloudinary.com/dimesumyw/image/upload/v1721646015/icons8-trash-50_qku7gq.png"
+                        alt="trash" />
+                </button>
+            </form>     
+        </h1>
+        <div class="response-item">
+            <label>Name:</label>
+            <p><%= response.name %></p>
+        </div>
+        <div class="response-item">
+            <label>Email:</label>
+            <p><%= response.email %></p>
+        </div>
+        <div class="response-item">
+            <label>Phone Number:</label>
+            <p><%= response.phoneNumber %></p>
+        </div>
+        <div class="response-item">
+            <label>Department:</label>
+            <p><%= response.department %></p>
+        </div>
+        <div class="response-item">
+            <label>Future Vision:</label>
+            <p><%= response.futureVision %></p>
+        </div>
+        <div class="response-item">
+            <label>Project Links:</label>
+            <p><%= response.projectLinks %></p>
+        </div>
+        <div class="response-item">
+            <label>Video Game Special Ability:</label>
+            <p><%= response.videoGame %></p>
+        </div>
+        <div class="response-item">
+            <label>Date Submitted:</label>
+            <p><%= response.timeStamp %></p>
+        </div>
+    </div>
+    <script>
+    document.querySelector('.delete-button').addEventListener('click', function (event) {
+        event.preventDefault();
+        const confirmed = confirm('Are you sure you want to delete this response?');
+        if (confirmed) {
+            this.closest('form').submit();
+        }
+    });
+</script>
+</body>
+</html>

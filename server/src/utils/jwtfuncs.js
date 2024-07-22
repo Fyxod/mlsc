@@ -13,7 +13,6 @@ export function getUser(token) {
     if (!token || typeof token !== 'string') {
         return null;
     }
-
     try {
         return jwt.verify(token, process.env.JWT_SECRET || 'notaverygoodsecret');
     } catch (err) {
