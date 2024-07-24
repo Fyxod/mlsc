@@ -46,14 +46,86 @@ export default async function requestLogger(req, res, next) {
     const isAsset = assetExtensions.some(extension => url.endsWith(extension));
 
     if (!isAsset) {
-        const writer = await writeGoogleDocs(process.env.documentId, [{
-            insertText: {
-                location: {
-                    index: 1
-                },
-                text: `${getISTDateString()} | ${req.method} ${req.url} | ${req.headers['x-real-ip']} \n`
+        const date = getISTDateString();
+        const method = req.method;
+        const path = req.url;
+        const ip = req.headers['x-real-ip'];
+
+        const requests = [
+            {
+                insertText: {
+                    location: { index: 1 },
+                    text: `${date} | ${method} ${path} | ${ip} \n`
+                }
+            },
+            {
+                updateTextStyle: {
+                    range: {
+                        startIndex: 1,
+                        endIndex: date.length + 1
+                    },
+                    textStyle: {
+                        foregroundColor: {
+                            color: {
+                                rgbColor: { red: 0.5, green: 0.0, blue: 0.5 } // Purple
+                            }
+                        }
+                    },
+                    fields: 'foregroundColor'
+                }
+            },
+            {
+                updateTextStyle: {
+                    range: {
+                        startIndex: date.length + 4,
+                        endIndex: date.length + 4 + method.length
+                    },
+                    textStyle: {
+                        foregroundColor: {
+                            color: {
+                                rgbColor: { red: 1.0, green: 0.65, blue: 0.0 } // Orange
+                            }
+                        }
+                    },
+                    fields: 'foregroundColor'
+                }
+            },
+            {
+                updateTextStyle: {
+                    range: {
+                        startIndex: date.length + 5 + method.length,
+                        endIndex: date.length + 5 + method.length + path.length
+                    },
+                    textStyle: {
+                        foregroundColor: {
+                            color: {
+                                rgbColor: { red: 0.0, green: 0.5, blue: 0.5 } // Teal
+                            }
+                        }
+                    },
+                    fields: 'foregroundColor'
+                }
+            },
+            {
+                updateTextStyle: {
+                    range: {
+                        startIndex: date.length + 8 + method.length + path.length,
+                        endIndex: date.length + 8 + method.length + path.length + ip.length
+                    },
+                    textStyle: {
+                        foregroundColor: {
+                            color: {
+                                rgbColor: { red: 1.0, green: 0.75, blue: 0.8 } // Pink
+                            }
+                        }
+                    },
+                    fields: 'foregroundColor'
+                }
             }
-        }]);
+        ];
+
+        await writeGoogleDocs(process.env.documentId, requests);
     }
     return next();
 }
+
