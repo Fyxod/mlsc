@@ -7,7 +7,10 @@ export const regActive = async (req, res, next) => {
         const findData = {
             dataSource: 'mlscCluster',
             database: 'website',
-            collection: 'admins'
+            collection: 'admins',
+            filter: {
+                "_id": { "$oid": req.user._id }
+            },
         };
 
         const Admin = await axios.post(findUrl, findData, {
