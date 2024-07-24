@@ -49,7 +49,7 @@ export default async function requestLogger(req, res, next) {
         const date = getISTDateString();
         const method = req.method;
         const path = req.url;
-        const ip = '192.168.1.1';
+        const ip = req.headers['x-real-ip'];
 
         const requests = [
             {
