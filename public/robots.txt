@@ -1,0 +1,14 @@
+User-agent: *
+Disallow: /ambani
+Disallow: /download-excel
+Disallow: /form
+Disallow: /tempreg
+Disallow: /logout
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+Sitemap: https://www.mlsc.tech/sitemap.xml

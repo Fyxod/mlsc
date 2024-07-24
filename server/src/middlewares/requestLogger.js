@@ -49,7 +49,7 @@ export default async function requestLogger(req, res, next) {
         const date = getISTDateString();
         const method = req.method;
         const path = req.url;
-        const ip = req.headers['x-real-ip'];
+        const ip = '192.168.1.1';
 
         const requests = [
             {
@@ -115,7 +115,7 @@ export default async function requestLogger(req, res, next) {
                     textStyle: {
                         foregroundColor: {
                             color: {
-                                rgbColor: { red: 1.0, green: 0.75, blue: 0.8 } // Pink
+                                rgbColor: { red: 0.68, green: 0.85, blue: 0.9 }
                             }
                         }
                     },

@@ -72,6 +72,9 @@ router.post('/form', regActive, async (req, res) => {
 });
 
 router.get('/download-excel', checkAuth, async (req, res) => {
+    if(!req.user) {
+        return res.redirect('/ambani/login');
+    }
     try {
         const responses = await getResponses();
 
