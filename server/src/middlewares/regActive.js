@@ -1,5 +1,7 @@
 import axios from "axios";
+import dotenv from "dotenv";
 
+dotenv.config();
 export const regActive = async (req, res, next) => {
     try {
         const findUrl = process.env.DATA_API_URL + 'findOne';
@@ -9,7 +11,7 @@ export const regActive = async (req, res, next) => {
             database: 'website',
             collection: 'admins',
             filter: {
-                "_id": { "$oid": req.user._id }
+                "_id": { "$oid": process.env.ADMIN_ID }
             },
         };
 
