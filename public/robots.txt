@@ -1,10 +1,4 @@
 User-agent: *
-Disallow: /ambani
-Disallow: /download-excel
-Disallow: /form
-Disallow: /tempreg
-Disallow: /logout
-
 User-agent: YandexBot
 Disallow: /
 
