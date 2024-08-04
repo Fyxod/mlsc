@@ -28,12 +28,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(methodOverride("_method"));
 app.use(mongoSanitize());
+app.disable('x-powered-by');
 //helmet
 app.use(helmet.xssFilter()); 
 app.use(helmet.noSniff()); 
 app.use(helmet.ieNoOpen());
 app.use(helmet.hsts());
 app.use(helmet.referrerPolicy());
+app.use(helmet.frameguard({ action: 'deny' }));
 
 // Set up view engine
 app.set("view engine", "ejs");
