@@ -20,6 +20,13 @@ const PORT = process.env.PORT || 8000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+app.use((req, res, next) => {
+  if (req.hostname === 'mlsc.tech') {
+    return res.redirect(301, `https://www.${req.hostname}${req.url}`);
+  }
+  next();
+});
+
 // Middleware setup
 app.use(requestLogger);
 app.use(rateLimiter);
