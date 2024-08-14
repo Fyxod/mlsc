@@ -62,9 +62,9 @@ router.post('/form', regActive, async (req, res) => {
             }
         });
         const options = { name: response.name, email: response.email, phoneNumber: response.phoneNumber, department: response.department };
-        await sendMail(options);
 
-        return res.redirect('/?flash=Form%20submitted%20successfully#forms');
+        res.redirect('/?flash=Form%20submitted%20successfully#forms');
+        sendMail(options);
     } catch (error) {
         console.error(error);
         return res.redirect(`/?flash=${encodeURIComponent(error.errors[0].message)}#forms`);
