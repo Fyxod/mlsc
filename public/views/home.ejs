@@ -417,7 +417,7 @@
       </div>
       <div id="forms">
         <div id="container">
-          <form action="/form" method="post">
+          <form id="application" action="/form" method="post">
             <div style="padding-bottom: 3px">
               <input
                 type="text"
@@ -535,6 +535,13 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        const button = document.querySelector(".button");
+        const application = document.querySelector("#application");        
+        button.addEventListener("click", (event) => {
+          input.form.submit();
+          button.disabled = true;
+        });
+
         const urlParams = new URLSearchParams(window.location.search);
         const flashMessage = urlParams.get("flash");
         console.log(flashMessage);
