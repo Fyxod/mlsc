@@ -1,25 +1,11 @@
-import axios from "axios";
 import dotenv from "dotenv";
+import Admin from "../models/user.js";
 
 dotenv.config();
-export const regActive = async (req, res, next) => {
+export const regActive = async (_, res, next) => {
     try {
-        const findUrl = process.env.DATA_API_URL + 'findOne';
-        const apiKey = process.env.DATA_API_KEY;
-        const findData = {
-            dataSource: 'mlscCluster',
-            database: 'website',
-            collection: 'admins'
-        };
-
-        const Admin = await axios.post(findUrl, findData, {
-            headers: {
-                'Content-Type': 'application/ejson',
-                'Accept': 'application/json',
-                'apiKey': apiKey
-            }
-        });
-        if (!Admin?.data.document.regActive) {
+        const admin = await Admin.findOne();
+        if (!admin.regActive) {
             return res.redirect('/?flash=Registrations%20not%20open#forms')
         }
         return next();

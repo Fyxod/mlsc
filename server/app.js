@@ -11,7 +11,7 @@ import authRoute from "./src/routes/auth.js";
 import formRoute from "./src/routes/form.js";
 import rateLimiter from "./src/middlewares/rateLimiter.js";
 import requestLogger from "./src/middlewares/requestLogger.js";
-
+import connectMongo from "./src/db/mongoose.js";
 dotenv.config();
 
 const app = express();
@@ -26,6 +26,9 @@ app.use((req, res, next) => {
   }
   next();
 });
+
+// MongoDB connection
+connectMongo();
 
 // Middleware setup
 app.use(requestLogger);
