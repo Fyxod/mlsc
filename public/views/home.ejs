@@ -536,28 +536,14 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const button = document.querySelector(".button");
-        const application = document.querySelector("#application");        
+        const application = document.querySelector("#application");
+
         button.addEventListener("click", (event) => {
-          input.form.submit();
+          event.preventDefault();
+          console.log("Form submitted");
           button.disabled = true;
-        });
-
-        const urlParams = new URLSearchParams(window.location.search);
-        const flashMessage = urlParams.get("flash");
-        console.log(flashMessage);
-
-        if (flashMessage) {
-          const flashMessageDiv = document.querySelector(".flash");
-          flashMessageDiv.textContent = flashMessage;
-
-          document
-            .getElementById("forms")
-            .scrollIntoView({ behavior: "smooth" });
-
-          setTimeout(function () {
-            history.replaceState({}, document.title, "/");
-          }, 6500);
-        }
+          application.submit();
+      });
       });
     </script>
     <script src="../scripts/team.js"></script>

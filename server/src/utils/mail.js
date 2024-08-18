@@ -19,13 +19,17 @@ const transporter = nodemailer.createTransport({
 });
 
 export default async function sendMail(response) {
-  const template = fs.readFileSync(path.join(__dirname, 'email.ejs'), 'utf-8');
-  const emailHtml = ejs.render(template, { response });
-  const info = await transporter.sendMail({
-    from: `"MLSC DB" <${process.env.email}>`,
-    to: response.email,
-    subject: `Hello ${response.name}`,
-    html: emailHtml,
-  });
-  console.log(info);
+  try {
+    const template = fs.readFileSync(path.join(__dirname, 'email.ejs'), 'utf-8');
+    const emailHtml = ejs.render(template, { response });
+    const info = await transporter.sendMail({
+      from: `"MLSC DB" <${process.env.email}>`,
+      to: response.email,
+      subject: `Hello ${response.name}`,
+      html: emailHtml,
+    });
+    console.log(info);
+  } catch (error) {
+    console.error(error);
+  }
 }
