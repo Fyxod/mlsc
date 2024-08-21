@@ -1,8 +1,4 @@
 User-agent: *
-User-agent: YandexBot
-Disallow: /
-
-User-agent: SeznamBot
-Disallow: /
+Disallow:
 
 Sitemap: https://www.mlsc.tech/sitemap.xml
