@@ -11,6 +11,16 @@ const router = express.Router();
 router.post('/form', regActive, async (req, res) => {
     try {
         const { name, email, phoneNumber, department, futureVision, projectLinks, videoGame } = formSchema.parse(req.body);
+        const existingForm = await Form.findOne({
+            $or: [
+                { email },
+                { phoneNumber }
+            ]
+        });
+
+        if (existingForm) {
+            return res.redirect('/?flash=Form%20already%20submitted#forms');
+        }
 
         const form = new Form({
             name,
