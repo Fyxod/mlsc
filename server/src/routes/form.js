@@ -14,7 +14,8 @@ router.post('/form', regActive, async (req, res) => {
         const existingForm = await Form.findOne({
             $or: [
                 { email },
-                { phoneNumber }
+                { phoneNumber },
+                { projectLinks }
             ]
         });
 
