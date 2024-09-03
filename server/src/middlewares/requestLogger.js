@@ -40,6 +40,7 @@ async function writeGoogleDocs(documentId, requests) {
 }
 
 export default async function requestLogger(req, res, next) {
+    try{
     const assetExtensions = ['.css', '.js', '.mp4', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.woff', '.woff2', '.ttf', '.eot'];
     const url = req.url.toLowerCase();
 
@@ -124,8 +125,11 @@ export default async function requestLogger(req, res, next) {
             }
         ];
 
-        await writeGoogleDocs(process.env.documentId, requests);
+        writeGoogleDocs(process.env.documentId, requests);
     }
     return next();
+} catch (error) {
+    console.error('error', error);
+}
 }
 

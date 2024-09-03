@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Response</title>
-    <link
-      rel="shortcut icon"
-      href="https://res.cloudinary.com/dvhwz7ptr/image/upload/f_auto,q_auto/qubw0db5njuheicndqst"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon"
+        href="https://res.cloudinary.com/dvhwz7ptr/image/upload/f_auto,q_auto/qubw0db5njuheicndqst"
+        type="image/x-icon" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +16,7 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 800px;
             margin: 50px auto;
@@ -26,39 +26,69 @@
             border-radius: 8px;
             position: relative;
         }
+
         h1 {
             text-align: center;
             color: #4CAF50;
             position: relative;
-            padding-right: 50px; 
+            padding-right: 50px;
         }
+
         .delete-button {
             position: absolute;
             top: 50%;
-            right: 20px; 
+            right: 20px;
             transform: translateY(-50%);
             background-color: transparent;
             border: none;
             cursor: pointer;
         }
+
         .response-item {
             margin-bottom: 20px;
         }
+
         .response-item label {
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
         }
+
         .response-item p {
             background-color: #f9f9f9;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            word-wrap: break-word; 
-            white-space: pre-wrap; 
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .edit-button,
+        .save-button {
+            margin-left: 10px;
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .save-button {
+            display: none;
+        }
+
+        #remarks-input {
+            display: none;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Form Response
@@ -68,49 +98,89 @@
                         src="https://res.cloudinary.com/dimesumyw/image/upload/v1721646015/icons8-trash-50_qku7gq.png"
                         alt="trash" />
                 </button>
-            </form>     
+            </form>
         </h1>
         <div class="response-item">
             <label>Name:</label>
-            <p><%= response.name %></p>
+            <p>
+                <%= response.name %>
+            </p>
         </div>
         <div class="response-item">
             <label>Email:</label>
-            <p><%= response.email %></p>
+            <p>
+                <%= response.email %>
+            </p>
         </div>
         <div class="response-item">
             <label>Phone Number:</label>
-            <p><%= response.phoneNumber %></p>
+            <p>
+                <%= response.phoneNumber %>
+            </p>
         </div>
         <div class="response-item">
             <label>Department:</label>
-            <p><%= response.department %></p>
+            <p>
+                <%= response.department %>
+            </p>
         </div>
         <div class="response-item">
             <label>Future Vision:</label>
-            <p><%= response.futureVision %></p>
+            <p>
+                <%= response.futureVision %>
+            </p>
         </div>
         <div class="response-item">
             <label>Project Links:</label>
-            <p><%= response.projectLinks %></p>
+            <p>
+                <%= response.projectLinks %>
+            </p>
         </div>
         <div class="response-item">
             <label>Video Game Special Ability:</label>
-            <p><%= response.videoGame %></p>
+            <p>
+                <%= response.videoGame %>
+            </p>
+        </div>
+        <div class="response-item">
+            <form action="/ambani/response/<%= response._id %>?_method=PUT" method="post">
+                <label>Remarks:</label>
+                <p id="remarks-text">
+                    <%= response.remarks || "" %>
+                </p>
+                <textarea id="remarks-input" name="remarks"><%= response.remarks || "" %></textarea>
+                <button type="button" class="edit-button">Edit</button>
+                <button type="submit" class="save-button">Save Remarks</button>
+            </form>
         </div>
         <div class="response-item">
             <label>Date Submitted:</label>
-            <p><%= response.timeStamp %></p>
+            <p>
+                <%= response.timeStamp %>
+            </p>
         </div>
     </div>
     <script>
-    document.querySelector('.delete-button').addEventListener('click', function (event) {
-        event.preventDefault();
-        const confirmed = confirm('Are you sure you want to delete this response?');
-        if (confirmed) {
-            this.closest('form').submit();
-        }
-    });
-</script>
+        document.querySelector('.delete-button').addEventListener('click', function (event) {
+            event.preventDefault();
+            const confirmed = confirm('Are you sure you want to delete this response?');
+            if (confirmed) {
+                this.closest('form').submit();
+            }
+        });
+
+        const editButton = document.querySelector('.edit-button');
+        const saveButton = document.querySelector('.save-button');
+        const remarksText = document.querySelector('#remarks-text');
+        const remarksInput = document.querySelector('#remarks-input');
+
+        editButton.addEventListener('click', function () {
+            remarksText.style.display = 'none';
+            remarksInput.style.display = 'block';
+            editButton.style.display = 'none';
+            saveButton.style.display = 'inline-block';
+        });
+    </script>
 </body>
+
 </html>

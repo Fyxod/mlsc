@@ -29,6 +29,9 @@ const formsSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please answer the question"]
     },
+    remarks: {
+        type: String
+    },
     timeStamp: {
         type: String,
         required: true

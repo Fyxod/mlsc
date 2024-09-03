@@ -64,6 +64,28 @@ router.route('/ambani/response/:_id')
             return res.status(500).send('Internal Server Error' );
         }
     })
+    .put(checkAuth, async (req, res) => {
+        if (!req.user) {
+            return res.redirect('/ambani/login');
+        }
+        try {
+            const { remarks } = req.body;
+            const { _id } = req.params;
+            const form = await Form.findById(_id);
+
+            if (!form) {
+                return res.status(404).send('Form not found');
+            }
+
+            form.remarks = remarks;
+            await form.save();
+
+            return res.redirect(`/ambani/response/${_id}`);
+        } catch (error) {
+            console.error(error);
+            return res.status(500).send('Internal Server Error' );
+        }
+    })
 
     .delete(checkAuth, async (req, res) => {
         if (!req.user) {
