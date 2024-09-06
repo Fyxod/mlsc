@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 connectMongo();
 
 // Middleware setup
-// app.use(requestLogger);
+app.use(requestLogger);
 app.use(rateLimiter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

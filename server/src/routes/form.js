@@ -37,7 +37,7 @@ router.post('/form', regActive, async (req, res) => {
         await form.save();
         const options = { name, email, phoneNumber, department };
         res.redirect('/?flash=Form%20submitted%20successfully#forms');
-        // sendMail(options);
+        sendMail(options);
 
     } catch (error) {
         console.error(error);
